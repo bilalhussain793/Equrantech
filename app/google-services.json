@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "341039165371",
+    "firebase_url": "https://teacherequran.firebaseio.com",
+    "project_id": "teacherequran",
+    "storage_bucket": "teacherequran.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341039165371:android:0d9d79619ec12b59f8de9e",
+        "android_client_info": {
+          "package_name": "com.img.equran"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341039165371-igscn1n83b6adkccbqkvmtv66ra3npom.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.img.equran",
+            "certificate_hash": "9b3eb7f1cfc9815e75d62bde49f9ed892bd49039"
+          }
+        },
+        {
+          "client_id": "341039165371-vrejgelslsp83sn95pjb5bo8cn71m84u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp1xWV4ON2pDG_uJ52QqR6giaElocXqQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341039165371-vrejgelslsp83sn95pjb5bo8cn71m84u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341039165371:android:1827c889b970e00af8de9e",
+        "android_client_info": {
+          "package_name": "com.img.teacher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341039165371-1ud1623lcr2js6p4c5g5d93ifmues70c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.img.teacher",
+            "certificate_hash": "9b3eb7f1cfc9815e75d62bde49f9ed892bd49039"
+          }
+        },
+        {
+          "client_id": "341039165371-vrejgelslsp83sn95pjb5bo8cn71m84u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp1xWV4ON2pDG_uJ52QqR6giaElocXqQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341039165371-vrejgelslsp83sn95pjb5bo8cn71m84u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

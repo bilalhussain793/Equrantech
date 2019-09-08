@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/quran"
+    android:layout_height="match_parent"
+    tools:context=".Register">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Easy Quran"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="46sp"
+        android:layout_marginBottom="50dp"
+        android:textStyle="bold"
+        app:fontFamily="cursive" />
+
+
+    <LinearLayout
+        android:id="@+id/li0"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="23sp"
+            android:textColor="#ffffff"
+            android:layout_gravity="center"
+            android:text="You want to SignUp As?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:layout_gravity="center"
+            android:id="@+id/tech"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:textColor="#ffffff"
+            android:layout_height="wrap_content"
+            android:text="Teacher"
+            android:padding="10dp"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/std"
+            android:layout_width="wrap_content"
+            android:textColor="#ffffff"
+            android:layout_height="wrap_content"
+            android:text="Student "
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+
+        android:visibility="gone"
+
+        android:id="@+id/li1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:orientation="vertical"
+
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="20dp"
+        >
+
+
+        <TextView
+            android:id="@+id/tt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:textAlignment="center"
+            android:text="What kinds of activities are you currently most interested in?"
+            android:textColor="#ffff"
+            android:textSize="24sp" />
+
+        <CheckBox
+            android:id="@+id/arabic"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:text="Get used to speaking in Arabic"
+            android:padding="10dp"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/pra_quran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Practice Quran"
+            android:textColor="#ffffff"
+            android:padding="10dp"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/learn_quran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Learn Quran"
+            android:textColor="#ffffff"
+            android:padding="10dp"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/hifaz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Correction in Hifaz"
+            android:padding="10dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/bt_next1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:text="Next"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <!--Next-->
+    <LinearLayout
+        android:id="@+id/li2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="What are your current learning goals?"
+            android:textAlignment="center"
+            android:textColor="#ffff"
+            android:textSize="24sp" />
+
+        <CheckBox
+            android:id="@+id/cb_improve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:textColor="#ffffff"
+            android:text="Self Improvement"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/cb_study"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"  android:textColor="#ffffff"
+            android:text="Study Abroad"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/cb_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"  android:textColor="#ffffff"
+            android:text="Pass an Interview"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/cb_Excel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"  android:textColor="#ffffff"
+            android:text="Excel at work/Job"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_next2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:text="Next"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/li3"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:orientation="vertical"
+        android:textColor="#ffff"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="10dp"
+        >
+        <EditText
+            android:drawableTint="#ffff"
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:inputType="text"
+            android:textColor="#ffffff"
+
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:drawableLeft="@drawable/usrusr"
+            android:drawablePadding="16dp" />
+
+        <EditText
+            android:drawableTint="#FFFFFF"
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="#ffffff"
+
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:drawableLeft="@drawable/mail"
+            android:drawablePadding="16dp" />
+
+        <EditText
+            android:drawableTint="#ffff"
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="#ffffff"
+
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:drawableLeft="@drawable/lockers"
+            android:drawablePadding="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Spinner
+
+                android:id="@+id/Country"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/country_code"
+                />
+
+            <EditText
+                android:id="@+id/etcountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contact"
+
+                android:inputType="textPassword"
+                android:textColor="#ffffff"
+
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                />
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Gender:"
+                android:layout_marginLeft="5dp"
+
+
+                android:textSize="19dp"/>
+
+
+
+            <Spinner
+                android:id="@+id/gen"
+                android:layout_width="30dp"
+
+                android:layout_height="wrap_content"
+                android:entries="@array/country_arrays"
+                android:layout_weight="1" />
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+        <EditText
+            android:ems="30"
+            android:id="@+id/etReferral"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Referral Code (Optional)"
+            android:inputType="text"
+            android:textColor="#ffffff"
+
+            android:padding="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:drawablePadding="16dp"/>
+
+
+
+
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:text="Next"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

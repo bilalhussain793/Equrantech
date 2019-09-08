@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Teacher</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_activity_navigator">navigator</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="my_text"> <u>SignUp</u>.</string>
+    <string-array name="country_arrays">
+        <item>Male</item>
+        <item>Female</item>
+
+    </string-array>
+
+    <string-array name="mins_per_day">
+        <item>Minutes per Day</item>
+        <item>15 minutes per Day</item>
+        <item>30 minutes per Day</item>
+        <item>60 minutes per Day</item>
+        <item>120 minutes per Day</item>
+
+    </string-array>
+
+
+    <string-array name="days_per_week">
+        <item>Days per Week</item>
+        <item>1 days per Week</item>
+        <item>3 days per Week</item>
+        <item>5 days per Week</item>
+        <item>7 days per Week</item>
+
+    </string-array>
+
+    <string-array name="reasons">
+        <item>-</item>
+        <item>Subscriptions</item>
+
+        <item>Payments</item>
+        <item>Minutes</item>
+        <item>Reservations</item>
+        <item>Technical Problem</item>
+        <item>Other</item>
+        <item>General Question</item>
+
+    </string-array>
+    <string-array name="country_code">
+        <item>-</item>
+        <item>country</item>
+
+        <item>india</item>
+        <item>Pakistan</item>
+        <item>South africe</item>
+
+
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

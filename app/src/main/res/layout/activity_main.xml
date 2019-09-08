@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/quran"
+    android:scaleType="centerCrop"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/eq_logo"
+
+                android:layout_marginTop="20dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Easy Quran"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="46sp"
+                android:textStyle="bold"
+                app:fontFamily="cursive" />
+
+            <EditText
+
+                android:id="@+id/etUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:inputType="text"
+                android:textColor="#ffffff"
+                android:drawableTint="#ffff"
+                android:padding="12dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:drawableLeft="@drawable/usrusr"
+                android:drawablePadding="16dp" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:textColor="#ffffff"
+
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:drawableLeft="@drawable/lockers"
+                android:drawablePadding="16dp"
+                android:drawableTint="#ffff"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="12dp" />
+
+
+            <Button
+                android:id="@+id/login_bt"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/btngreenstyle"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="14dp"
+                android:text="login"
+                android:textSize="16dp"
+                android:textColor="#fff" />
+            <TextView
+                android:layout_gravity="center"
+                android:text="Or"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <!--<android.support.v7.widget.CardView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--app:cardCornerRadius="10dp"-->
+            <!--android:layout_marginRight="20dp">-->
+            <Button
+                android:id="@+id/sign_in_button"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="#FFFFFF"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/googlep"
+                android:paddingLeft="10dp"
+                android:text="    Login with Google     "
+                android:textAllCaps="false"
+                android:textColor="#B40000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <!--</android.support.v7.widget.CardView>-->
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textColor="#ffffff"
+                android:layout_gravity="center"
+                android:text="Not A Member"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/signup_bt"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/my_text"
+
+                android:textColor="#ffffff"
+                android:selectAllOnFocus="false"
+                android:linksClickable="false"
+                android:autoLink="all"
+                />
+
+
+
+            <TextView
+                android:id="@+id/agreement"
+                android:layout_width="match_parent"
+                android:padding="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="0dp"
+
+                android:text="By creating an account, you agree to our User Agreement and that you have read our Privacy Policy"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="10sp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
