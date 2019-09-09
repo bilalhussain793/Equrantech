@@ -1,6 +1,7 @@
 package com.img.equran;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,27 +12,85 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class Tutor extends Fragment {
 
 ListView lv;
 ArrayList<String> arr=new ArrayList<>();
+    int totalUsers = 0;
+    ProgressDialog pd;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_tutor, container, false);
-
-
         lv=view.findViewById(R.id.list_view);
-        arr.add("03214788470");
-        arr.add("03130449397");
-        //ArrayAdapter adapter=new ArrayAdapter(getActivity(),R.layout.support_simple_spinner_dropdown_item,arr);
-        TeacherAdapter adapter=new TeacherAdapter(getActivity(),arr);
-        lv.setAdapter(adapter);
+        String url = "https://teacherequran.firebaseio.com/users.json";
+
+        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
+            @Override
+            public void onResponse(String s) {
+                doOnSuccess(s);
+            }
+        },new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                System.out.println("" + volleyError);
+            }
+        });
+
+        RequestQueue rQueue = Volley.newRequestQueue(getActivity());
+        rQueue.add(request);
+
+//        arr.add("03214788470");
+//        arr.add("03130449397");
+//
+//        TeacherAdapter adapter=new TeacherAdapter(getActivity(),arr);
+//        lv.setAdapter(adapter);
 
         return view;
+    }
+    public void doOnSuccess(String s){
+        try {
+            JSONObject obj = new JSONObject(s);
+
+            Iterator i = obj.keys();
+            String key = "";
+
+            while(i.hasNext()){
+                key = i.next().toString();
+
+                    arr.add(key);
+
+
+                totalUsers++;
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        if(totalUsers <=1){
+           // usersList.setVisibility(View.GONE);
+        }
+        else{
+            //usersList.setVisibility(View.VISIBLE);
+            lv.setAdapter(new TeacherAdapter(getActivity(),arr));
+        }
+
+//        pd.dismiss();
     }
 }
