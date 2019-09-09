@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,navigator.class));
             }
         });
-        //startActivity(new Intent(MainActivity.this,navigator.class));
+       // startActivity(new Intent(MainActivity.this,getponits.class));
 
 
         bt_signup.setOnClickListener(new View.OnClickListener() {
