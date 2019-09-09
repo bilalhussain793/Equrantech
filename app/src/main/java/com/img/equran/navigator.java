@@ -41,7 +41,7 @@ public class navigator extends AppCompatActivity {
                             .commit();
                     return true;
                 case R.id.navigation_tutor:
-                    Home blankFragment5 = new Home();
+                    Tutor blankFragment5 = new Tutor();
                     FragmentManager f5 = getSupportFragmentManager();
                     f5.beginTransaction()
                             .replace(R.id.fragment_container, blankFragment5)

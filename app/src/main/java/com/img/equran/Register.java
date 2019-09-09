@@ -1,6 +1,7 @@
 package com.img.equran;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -75,13 +76,11 @@ public class Register extends AppCompatActivity {
                 ln_3.setVisibility(View.GONE);
             }
         });
+
         Teacher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ln_0.setVisibility(View.GONE);
-                ln_1.setVisibility(View.GONE);
-                ln_2.setVisibility(View.GONE);
-                ln_3.setVisibility(View.VISIBLE);
+                startActivity(new Intent(Register.this,TeacherRegister.class));
             }
         });
 

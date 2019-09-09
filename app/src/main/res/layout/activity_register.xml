@@ -25,7 +25,6 @@
 
     <LinearLayout
         android:id="@+id/li0"
-        android:visibility="gone"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:orientation="vertical"
@@ -328,18 +327,12 @@
             <Spinner
                 android:id="@+id/gen"
                 android:layout_width="30dp"
-
                 android:layout_height="wrap_content"
                 android:entries="@array/country_arrays"
                 android:layout_weight="1" />
 
 
-
-
         </LinearLayout>
-
-
-
 
 
 
@@ -351,15 +344,12 @@
             android:hint="Referral Code (Optional)"
             android:inputType="text"
             android:textColor="#ffffff"
-
             android:padding="12dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:drawablePadding="16dp"/>
-
-
 
 
 
@@ -371,7 +361,6 @@
             android:text="Next"
             android:textColor="@color/colorAccent"
             android:textStyle="bold" />
-
 
 
 
