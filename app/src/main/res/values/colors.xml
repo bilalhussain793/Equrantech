@@ -6,4 +6,6 @@
     <color name="white">#FFFFFF</color>
     <color name="white_trans">#99FFFFFF</color>
     <color name="them">#7403A9F4</color>
+    <color name="contentcolor">#150036</color>
+
 </resources>

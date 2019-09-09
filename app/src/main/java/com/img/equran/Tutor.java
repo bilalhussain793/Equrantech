@@ -3,14 +3,17 @@ package com.img.equran;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,6 +35,7 @@ ListView lv;
 ArrayList<String> arr=new ArrayList<>();
     int totalUsers = 0;
     ProgressDialog pd;
+    public static TeacherAdapter teacheradapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,11 +59,15 @@ ArrayList<String> arr=new ArrayList<>();
         RequestQueue rQueue = Volley.newRequestQueue(getActivity());
         rQueue.add(request);
 
-//        arr.add("03214788470");
-//        arr.add("03130449397");
-//
-//        TeacherAdapter adapter=new TeacherAdapter(getActivity(),arr);
-//        lv.setAdapter(adapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ProfileAdapter.contact=arr.get(position);
+                startActivity(new Intent(getActivity(),TeacherProfile.class));
+                Toast.makeText(getActivity(), ""+arr.get(position), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }
@@ -75,7 +83,6 @@ ArrayList<String> arr=new ArrayList<>();
 
                     arr.add(key);
 
-
                 totalUsers++;
             }
 
@@ -88,7 +95,8 @@ ArrayList<String> arr=new ArrayList<>();
         }
         else{
             //usersList.setVisibility(View.VISIBLE);
-            lv.setAdapter(new TeacherAdapter(getActivity(),arr));
+            teacheradapter=new TeacherAdapter(getActivity(),arr);
+            lv.setAdapter(teacheradapter);
         }
 
 //        pd.dismiss();

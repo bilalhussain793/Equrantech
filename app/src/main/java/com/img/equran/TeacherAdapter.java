@@ -1,6 +1,11 @@
 package com.img.equran;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Shader;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,14 +59,18 @@ public class TeacherAdapter extends ArrayAdapter<String> {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 String value = dataSnapshot.child("Name").getValue(String.class);
+                String email = dataSnapshot.child("Email").getValue(String.class);
+                String bal = dataSnapshot.child("Name").getValue(String.class);
                // Log.d(TAG, "Value is: " + value);
                 titleText.setText(value);
+
                 Picasso.with(context).load("https://firebasestorage.googleapis.com" +
                         "/v0/b/" +
                         "teacherequran.appspot.com/o/img%2F"
                         +maintitle.get(position)+
-                        "?alt=media&token=53e6c894-27a6-4318-8288-d603a039124e")
+                        "?alt=media&token=53e6c894-27a6-4318-8288-d603a039124e").transform(new CircleTransform())
                         .into(imageView);
+
             }
 
             @Override
@@ -93,5 +103,39 @@ public class TeacherAdapter extends ArrayAdapter<String> {
 
         return rowView;
 
+    }
+    public class CircleTransform implements Transformation {
+        @Override
+        public Bitmap transform(Bitmap source) {
+            int size = Math.min(source.getWidth(), source.getHeight());
+
+            int x = (source.getWidth() - size) / 2;
+            int y = (source.getHeight() - size) / 2;
+
+            Bitmap squaredBitmap = Bitmap.createBitmap(source, x, y, size, size);
+            if (squaredBitmap != source) {
+                source.recycle();
+            }
+
+            Bitmap bitmap = Bitmap.createBitmap(size, size, source.getConfig());
+
+            Canvas canvas = new Canvas(bitmap);
+            Paint paint = new Paint();
+            BitmapShader shader = new BitmapShader(squaredBitmap,
+                    Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+            paint.setShader(shader);
+            paint.setAntiAlias(true);
+
+            float r = size / 2f;
+            canvas.drawCircle(r, r, r, paint);
+
+            squaredBitmap.recycle();
+            return bitmap;
+        }
+
+        @Override
+        public String key() {
+            return "circle";
+        }
     }
 }

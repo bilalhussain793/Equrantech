@@ -102,6 +102,10 @@ Button reg_btn;
                             reference.child(phn.getText().toString()).child("Phone").setValue(phn.getText().toString());
                             reference.child(phn.getText().toString()).child("Address").setValue(adr.getText().toString());
                             reference.child(phn.getText().toString()).child("Name").setValue(name.getText().toString());
+                            reference.child(phn.getText().toString()).child("OnlineState").setValue("online");
+                            reference.child(phn.getText().toString()).child("Rating").setValue("0");
+                            reference.child(phn.getText().toString()).child("Balance").setValue("0");
+
                             uploadImage();
 
                             //image will be added there
