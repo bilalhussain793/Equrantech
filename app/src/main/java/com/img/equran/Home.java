@@ -58,7 +58,7 @@ sub_min.setText("Coming Data From Firebase");
 bt_minssub.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        startActivity(new Intent(getActivity(),points.class));
+        startActivity(new Intent(getActivity(),getponits.class));
     }
 });
 
