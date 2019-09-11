@@ -35,7 +35,7 @@ public class Register extends AppCompatActivity {
     CheckBox speak_arabic,prac_quran,learn_quran,correction_hifaz;
     //learn goals
     CheckBox self_improv,study_abroad,pass_interview,excel,Student,Teacher;
-    EditText name,email,password,country_code,refrel;
+    EditText name,email,password,phone_et,refrel;
     Spinner gender,contry;
     StringBuffer st_act=new StringBuffer();
     StringBuffer st_goals=new StringBuffer();
@@ -58,7 +58,7 @@ public class Register extends AppCompatActivity {
         name = findViewById(R.id.etUsername);
         email = findViewById(R.id.etEmail);
         password = findViewById(R.id.etPassword);
-        country_code = findViewById(R.id.etcountry);
+        phone_et = findViewById(R.id.etcountry);
         refrel = findViewById(R.id.etReferral);
         gender = findViewById(R.id.gen);
         contry = findViewById(R.id.Country);
@@ -290,64 +290,65 @@ regfun();
     }
     public void regfun(){
 
-        final String un, em, ps, country;
+        final String phone, un, em, ps ;
+                phone = phone_et.getText().toString();
                 un = name.getText().toString();
                 em = email.getText().toString();
                 ps = password.getText().toString();
                 final String rf = refrel.getText().toString();
-                country = country_code.getText().toString();
-        String url = "https://teacherequran.firebaseio.com/std.json";
 
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
+
+                String url = "https://teacherequran.firebaseio.com/std.json";
+                StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
             @Override
-            public void onResponse(String s) {
+                public void onResponse(String s) {
                 Firebase reference = new Firebase("https://teacherequran.firebaseio.com/std");
 
                 if(s.equals("null")) {
-                    reference.child(un).child("Password").setValue(ps);
+                    reference.child(phone).child("Password").setValue(ps);
                     Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
                 }
                 else {
                     try {
                         JSONObject obj = new JSONObject(s);
 
-                        if (!obj.has(un)) {
+                        if (!obj.has(phone)) {
 
-                            reference.child(un).child("Password").setValue(ps);
-                            reference.child(un).child("Email").setValue(em);
-                            reference.child(un).child("Refrel").setValue(rf);
-                            reference.child(un).child("Country").setValue(country);
-                            reference.child(un).child("Name").setValue("jkaka");
+                            reference.child(phone).child("Password").setValue(ps);
+                            reference.child(phone).child("Email").setValue(em);
+                            reference.child(phone).child("Refrel").setValue(rf);
+                            reference.child(phone).child("Phone").setValue(phone);
+                            reference.child(phone).child("Name").setValue(un);
                             if (self_improv.isChecked()) {
-                        reference.child("Activity").setValue(self_improv.getText().toString());
+                        reference.child(phone).child("Activity").setValue(self_improv.getText().toString());
                     }
                     if (study_abroad.isChecked()) {
-                        reference.child(un).child("Activity1").setValue(study_abroad.getText().toString());
+                        reference.child(phone).child("Activity1").setValue(study_abroad.getText().toString());
                     }
                     if (pass_interview.isChecked()) {
 
-                        reference.child(un).child("Activity2").setValue(pass_interview.getText().toString());
+                        reference.child(phone).child("Activity2").setValue(pass_interview.getText().toString());
 
                     }
                     if (excel.isChecked()) {
 
-                        reference.child(un).child("Activity3").setValue(excel.getText().toString());
+                        reference.child(phone).child("Activity3").setValue(excel.getText().toString());
 
                     }
                     if (speak_arabic.isChecked()) {
-                        reference.child(un).child("Std1").setValue(speak_arabic.getText().toString());
+                        reference.child(phone).child("Std1").setValue(speak_arabic.getText().toString());
 
                     }
                     if (prac_quran.isChecked()) {
-                        reference.child(un).child("Std2").setValue(prac_quran.getText().toString());
+                        reference.child(phone).child("Std2").setValue(prac_quran.getText().toString());
 
                     }
                     if (learn_quran.isChecked()) {
-                        reference.child(un).child("Std1").setValue(learn_quran.getText().toString());
+                        reference.child(phone).child("Std1").setValue(learn_quran.getText().toString());
 
                     }
                     if (correction_hifaz.isChecked()) {
-                        reference.child(un).child("Std1").setValue(correction_hifaz.getText().toString());
+                        reference.child(phone).child("Std1").setValue(correction_hifaz.getText().toString());
                     }
 
                             //image will be added there

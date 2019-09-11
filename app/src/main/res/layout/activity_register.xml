@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/back"
     android:orientation="vertical"
-    android:background="@drawable/quran"
+
     android:layout_height="match_parent"
     tools:context=".Register">
 
@@ -25,6 +26,7 @@
 
     <LinearLayout
         android:id="@+id/li0"
+        android:visibility="gone"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:orientation="vertical"
@@ -206,7 +208,7 @@
 
     <LinearLayout
         android:id="@+id/li3"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="29dp"

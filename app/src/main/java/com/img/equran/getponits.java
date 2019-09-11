@@ -20,6 +20,7 @@ public class getponits extends AppCompatActivity {
     Button subscribe;
 
     double hisab=0.1;
+
     String time1="15 minutes per Day";
     String time2="30 minutes per Day";
     String time3="45 minutes per Day";
