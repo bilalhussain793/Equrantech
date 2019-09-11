@@ -17,9 +17,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
-
-
             <ImageView
                 android:layout_gravity="center"
                 android:src="@drawable/eq_logo"
@@ -44,7 +41,9 @@
                 android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username"
+                android:hint="User Contact"
+                android:background="#40FFFFFF"
+                android:textColorHint="#8FFFFFFF"
                 android:inputType="text"
                 android:textColor="#ffffff"
                 android:drawableTint="#ffff"
@@ -52,6 +51,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="20dp"
+                android:text="03214788470"
                 android:layout_marginRight="20dp"
                 android:drawableLeft="@drawable/usrusr"
                 android:drawablePadding="16dp" />
@@ -60,10 +60,12 @@
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="12345"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
+                android:textColorHint="#8FFFFFFF"
                 android:textColor="#ffffff"
-
+                android:background="#40FFFFFF"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="20dp"
                 android:drawableLeft="@drawable/lockers"

@@ -51,7 +51,7 @@ public class TeacherProfile extends AppCompatActivity {
 
                // Log.d(TAG, "Value is: " + value);
                 tv.setText(""+nm);
-                email.setText(eml);
+                email.setText(eml);;
                 adr.setText(address);
                 fnm.setText(nm);
 
