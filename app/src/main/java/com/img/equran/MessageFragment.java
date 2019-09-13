@@ -30,20 +30,18 @@ import java.util.Iterator;
 
 
 public class MessageFragment extends Fragment {
-
     ListView lv;
     ArrayList<String> arr=new ArrayList<>();
     int totalUsers = 0;
-
+    public static TeacherAdapter teacheradapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_message, container, false);
-
-
-        lv = view.findViewById(R.id.listview);
-        String url = "https://teacherequran.firebaseio.com/messages.json";
+        lv=view.findViewById(R.id.listview);
+        String url = "https://teacherequran.firebaseio.com/messages" +
+                ".json";
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
             @Override
@@ -61,16 +59,16 @@ public class MessageFragment extends Fragment {
         rQueue.add(request);
 
 
-//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//                ProfileAdapter.contact=arr.get(position);
-//                startActivity(new Intent(getActivity(),TeacherProfile.class));
-//                Toast.makeText(getActivity(), ""+arr.get(position), Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                ProfileAdapter.contact=arr.get(position);
+                startActivity(new Intent(getActivity(),TeacherProfile.class));
+                Toast.makeText(getActivity(), ""+arr.get(position), Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         return view;
     }
@@ -85,12 +83,16 @@ public class MessageFragment extends Fragment {
                 key = i.next().toString();
 
                 if(!key.equals(UserDetails.phone)) {
-                    arr.add(key);
-                    Toast.makeText(getActivity(), ""+key, Toast.LENGTH_SHORT).show();
+                    if(key.contains(UserDetails.phone+"_")){
+                        String a=key.replace(UserDetails.phone+"_","");
+                        arr.add(a);
+                    }
+
                 }
 
                 totalUsers++;
             }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -100,9 +102,8 @@ public class MessageFragment extends Fragment {
         }
         else{
             //usersList.setVisibility(View.VISIBLE);
-            ArrayAdapter<String> adapter;
-            //adapter=new ArrayAdapter<String>(getContext(),R.layout.support_simple_spinner_dropdown_item,arr);
-            lv.setAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, arr));
+            teacheradapter=new TeacherAdapter(getActivity(),arr);
+            lv.setAdapter(new ChatAdapter(getActivity(),arr));
         }
     }
 }
