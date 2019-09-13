@@ -39,8 +39,8 @@ public class ChatActivity extends AppCompatActivity {
         scrollView = (ScrollView)findViewById(R.id.scrollView);
 
         Firebase.setAndroidContext(this);
-        reference1 = new Firebase("https://chat-d4245.firebaseio.com/messages/" + UserDetails.phone + "_" + UserDetails.chatWith);
-        reference2 = new Firebase("https://chat-d4245.firebaseio.com/messages/" + UserDetails.chatWith + "_" + UserDetails.phone);
+        reference1 = new Firebase("https://teacherequran.firebaseio.com/messages/" + UserDetails.phone + "_" + UserDetails.chatWith);
+        reference2 = new Firebase("https://teacherequran.firebaseio.com/messages/" + UserDetails.chatWith + "_" + UserDetails.phone);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +102,7 @@ public class ChatActivity extends AppCompatActivity {
         LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp2.weight = 1.0f;
 
-        if(type == 1) {
+        if(type == 1){
             lp2.gravity = Gravity.LEFT;
             textView.setBackgroundResource(R.drawable.bubble_in);
         }

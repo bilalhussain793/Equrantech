@@ -1,6 +1,5 @@
 package com.img.equran;
 
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -29,19 +28,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class Tutor extends Fragment {
 
-ListView lv;
-ArrayList<String> arr=new ArrayList<>();
+public class MessageFragment extends Fragment {
+
+    ListView lv;
+    ArrayList<String> arr=new ArrayList<>();
     int totalUsers = 0;
-    public static TeacherAdapter teacheradapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_tutor, container, false);
-        lv=view.findViewById(R.id.list_view);
-        String url = "https://teacherequran.firebaseio.com/users.json";
+        View view= inflater.inflate(R.layout.fragment_message, container, false);
+
+
+        lv = view.findViewById(R.id.listview);
+        String url = "https://teacherequran.firebaseio.com/messages.json";
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
             @Override
@@ -59,16 +61,16 @@ ArrayList<String> arr=new ArrayList<>();
         rQueue.add(request);
 
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                ProfileAdapter.contact=arr.get(position);
-                startActivity(new Intent(getActivity(),TeacherProfile.class));
-                Toast.makeText(getActivity(), ""+arr.get(position), Toast.LENGTH_SHORT).show();
-
-            }
-        });
+//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                ProfileAdapter.contact=arr.get(position);
+//                startActivity(new Intent(getActivity(),TeacherProfile.class));
+//                Toast.makeText(getActivity(), ""+arr.get(position), Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
 
         return view;
     }
@@ -84,22 +86,23 @@ ArrayList<String> arr=new ArrayList<>();
 
                 if(!key.equals(UserDetails.phone)) {
                     arr.add(key);
+                    Toast.makeText(getActivity(), ""+key, Toast.LENGTH_SHORT).show();
                 }
 
                 totalUsers++;
             }
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         if(totalUsers <=1){
-           // usersList.setVisibility(View.GONE);
+            // usersList.setVisibility(View.GONE);
         }
         else{
             //usersList.setVisibility(View.VISIBLE);
-            teacheradapter=new TeacherAdapter(getActivity(),arr);
-            lv.setAdapter(teacheradapter);
+            ArrayAdapter<String> adapter;
+            //adapter=new ArrayAdapter<String>(getContext(),R.layout.support_simple_spinner_dropdown_item,arr);
+            lv.setAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, arr));
         }
     }
 }

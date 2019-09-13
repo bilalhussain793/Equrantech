@@ -47,6 +47,13 @@ public class navigator extends AppCompatActivity {
                             .replace(R.id.fragment_container, blankFragment5)
                             .commit();
                     return true;
+                case R.id.chat_frag:
+                    MessageFragment blankFragment6 = new MessageFragment();
+                    FragmentManager f6 = getSupportFragmentManager();
+                    f6.beginTransaction()
+                            .replace(R.id.fragment_container, blankFragment6)
+                            .commit();
+                    return true;
             }
             return false;
         }
