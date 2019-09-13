@@ -42,20 +42,23 @@ public class MainActivity extends AppCompatActivity {
         et_Password=findViewById(R.id.etPassword);
 
         d=new Dialog(MainActivity.this);
-        d.setContentView(R.layout.teacher_list_layout);
+        d.setContentView(R.layout.login_select_dialog);
         std=d.findViewById(R.id.std);
         teacher=d.findViewById(R.id.teacher);
-
+        d.show();
+        d.setCancelable(false);
         std.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 select="STD";
+                d.cancel();
             }
         });
         teacher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 select="TCH";
+                d.cancel();
             }
         });
 
@@ -67,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(new Intent(MainActivity.this,navigator.class));
                     login(et_Username.getText().toString(), et_Password.getText().toString());
                 }else if(select.equals("STD")){
-
+                    login2(et_Username.getText().toString(), et_Password.getText().toString());
                 }else {
                     Toast.makeText(MainActivity.this, "Wrong Selection", Toast.LENGTH_SHORT).show();
                 }
