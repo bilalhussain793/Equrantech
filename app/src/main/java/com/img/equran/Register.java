@@ -75,7 +75,6 @@ public class Register extends AppCompatActivity {
         bt2 = findViewById(R.id.btn_next2);
         ln_0.setVisibility(View.VISIBLE);
 
-
         Student.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,131 +91,6 @@ public class Register extends AppCompatActivity {
                 startActivity(new Intent(Register.this,TeacherRegister.class));
             }
         });
-
-
-//        bt1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                if (speak_arabic.isChecked() || prac_quran.isChecked() || learn_quran.isChecked() || correction_hifaz.isChecked()) {
-//                    ln_1.setVisibility(View.GONE);
-//                    ln_2.setVisibility(View.VISIBLE);
-//                    if (speak_arabic.isChecked()) {
-//                        st_act.append(speak_arabic.getText().toString());
-//                    }
-//                    if (prac_quran.isChecked()) {
-//                        st_act.append(prac_quran.getText().toString());
-//                    }
-//                    if (learn_quran.isChecked()) {
-//                        st_act.append(learn_quran.getText().toString());
-//                    }
-//                    if (correction_hifaz.isChecked()) {
-//                        st_act.append(correction_hifaz.getText().toString());
-//                    }
-//
-//                    Toast.makeText(Register.this, "" + st_act, Toast.LENGTH_SHORT).show();
-//                    //activities here
-//
-//                } else {
-//                    Toast.makeText(Register.this, "Nothing is selected", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//
-//        bt2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                if (self_improv.isChecked() || study_abroad.isChecked() || pass_interview.isChecked() || excel.isChecked()) {
-//                    ln_2.setVisibility(View.GONE);
-//                    ln_3.setVisibility(View.VISIBLE);
-//                    if (self_improv.isChecked()) {
-//                        st_goals.append(self_improv.getText().toString());
-//                    }
-//                    if (study_abroad.isChecked()) {
-//                        st_goals.append(study_abroad.getText().toString());
-//                    }
-//                    if (pass_interview.isChecked()) {
-//                        st_goals.append(pass_interview.getText().toString());
-//                    }
-//                    if (excel.isChecked()) {
-//                        st_goals.append(excel.getText().toString());
-//                    }
-//
-//                    Toast.makeText(Register.this, "" + st_goals, Toast.LENGTH_SHORT).show();
-//                    //activities here
-//
-//                } else {
-//                    Toast.makeText(Register.this, "Nothing is selected", Toast.LENGTH_SHORT).show();
-//                }
-//
-//            }
-//        });
-//
-//        btn_next.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String un, em, ps, country;
-//                un = name.getText().toString();
-//                em = email.getText().toString();
-//                ps = password.getText().toString();
-//                String rf = refrel.getText().toString();
-//                country = country_code.getText().toString();
-//
-//
-//                if (un.length() == 0 || em.length() == 0 || ps.length() == 0 || country.length() == 0) {
-//
-//                    Toast.makeText(Register.this, "All fields are required !", Toast.LENGTH_SHORT).show();
-//
-//                } else {
-//
-//                    DatabaseReference reference = database.getReference(un);
-//
-//                    reference.child("password").setValue(ps);
-//                    reference.child("email").setValue(em);
-//                    reference.child("username").setValue(un);
-//                    reference.child("refferal").setValue(rf);
-//                    reference.child("country").setValue(country);
-//                    if (self_improv.isChecked()) {
-//                        reference.child("Activity").setValue(self_improv.getText().toString());
-//                    }
-//                    if (study_abroad.isChecked()) {
-//                        reference.child("Activity1").setValue(study_abroad.getText().toString());
-//                    }
-//                    if (pass_interview.isChecked()) {
-//                        reference.child("Activity2").setValue(pass_interview.getText().toString());
-//                    }
-//                    if (excel.isChecked()) {
-//                        reference.child("Activity3").setValue(excel.getText().toString());
-//                    }
-//                    if (speak_arabic.isChecked()) {
-//                        reference.child("std").setValue(speak_arabic.getText().toString());
-//                    }
-//                    if (prac_quran.isChecked()) {
-//                        reference.child("std1").setValue(prac_quran.getText().toString());
-//                    }
-//                    if (learn_quran.isChecked()) {
-//                        reference.child("std2").setValue(learn_quran.getText().toString());
-//                    }
-//                    if (correction_hifaz.isChecked()) {
-//                        reference.child("std3").setValue(correction_hifaz.getText().toString());
-//                    }
-//
-//
-//                    //image will be added there
-//
-//                    Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
-//
-//                }
-//
-//            }
-//
-//
-//        });
-
-
-
-
 
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -237,10 +111,8 @@ public class Register extends AppCompatActivity {
                     if(correction_hifaz.isChecked()){
                         st_act.append(correction_hifaz.getText().toString());
                     }
-
                     Toast.makeText(Register.this, ""+st_act, Toast.LENGTH_SHORT).show();
                     //activities here
-
                 }else{
                     Toast.makeText(Register.this, "Nothing is selected", Toast.LENGTH_SHORT).show();
                 }
@@ -266,14 +138,11 @@ public class Register extends AppCompatActivity {
                     if(excel.isChecked()){
                         st_goals.append(excel.getText().toString());
                     }
-
                     Toast.makeText(Register.this, ""+st_goals, Toast.LENGTH_SHORT).show();
                     //activities here
-
                 }else{
                     Toast.makeText(Register.this, "Nothing is selected", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
@@ -282,7 +151,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-regfun();
+                regfun();
             }
 
         });
@@ -297,7 +166,6 @@ regfun();
                 ps = password.getText().toString();
                 final String rf = refrel.getText().toString();
 
-
                 String url = "https://teacherequran.firebaseio.com/std.json";
                 StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
             @Override
@@ -311,57 +179,46 @@ regfun();
                 else {
                     try {
                         JSONObject obj = new JSONObject(s);
-
                         if (!obj.has(phone)) {
-
                             reference.child(phone).child("Password").setValue(ps);
                             reference.child(phone).child("Email").setValue(em);
                             reference.child(phone).child("Refrel").setValue(rf);
                             reference.child(phone).child("Phone").setValue(phone);
                             reference.child(phone).child("Name").setValue(un);
-                            if (self_improv.isChecked()) {
-                        reference.child(phone).child("Activity").setValue(self_improv.getText().toString());
-                    }
-                    if (study_abroad.isChecked()) {
-                        reference.child(phone).child("Activity1").setValue(study_abroad.getText().toString());
-                    }
-                    if (pass_interview.isChecked()) {
-
-                        reference.child(phone).child("Activity2").setValue(pass_interview.getText().toString());
-
-                    }
-                    if (excel.isChecked()) {
-
-                        reference.child(phone).child("Activity3").setValue(excel.getText().toString());
-
-                    }
-                    if (speak_arabic.isChecked()) {
-                        reference.child(phone).child("Std1").setValue(speak_arabic.getText().toString());
-
-                    }
-                    if (prac_quran.isChecked()) {
-                        reference.child(phone).child("Std2").setValue(prac_quran.getText().toString());
-
-                    }
-                    if (learn_quran.isChecked()) {
-                        reference.child(phone).child("Std1").setValue(learn_quran.getText().toString());
-
-                    }
-                    if (correction_hifaz.isChecked()) {
-                        reference.child(phone).child("Std1").setValue(correction_hifaz.getText().toString());
-                    }
-
-                            //image will be added there
-                            Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(Register.this, "user already exists", Toast.LENGTH_LONG).show();
+                        if (self_improv.isChecked()) {
+                            reference.child(phone).child("Activity").setValue(self_improv.getText().toString());
                         }
+                        if (study_abroad.isChecked()) {
+                            reference.child(phone).child("Activity1").setValue(study_abroad.getText().toString());
+                        }
+                        if (pass_interview.isChecked()) {
+                            reference.child(phone).child("Activity2").setValue(pass_interview.getText().toString());
+                        }
+                        if (excel.isChecked()) {
+                            reference.child(phone).child("Activity3").setValue(excel.getText().toString());
+                        }
+                        if (speak_arabic.isChecked()) {
+                            reference.child(phone).child("Std1").setValue(speak_arabic.getText().toString());
+                        }
+                        if (prac_quran.isChecked()) {
+                            reference.child(phone).child("Std2").setValue(prac_quran.getText().toString());
 
+                        }
+                        if (learn_quran.isChecked()) {
+                            reference.child(phone).child("Std1").setValue(learn_quran.getText().toString());
+                        }
+                        if (correction_hifaz.isChecked()) {
+                            reference.child(phone).child("Std1").setValue(correction_hifaz.getText().toString());
+                        }
+                            //image will be added there
+                        Toast.makeText(Register.this, "registration successful", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(Register.this, "user already exists", Toast.LENGTH_LONG).show();
+                    }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
-
                 //  pd.dismiss();
             }
 
@@ -369,13 +226,10 @@ regfun();
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 System.out.println("" + volleyError );
-                //pd.dismiss();
             }
         });
-
         RequestQueue rQueue = Volley.newRequestQueue(Register.this);
         rQueue.add(request);
-
     }
 
 }

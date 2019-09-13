@@ -1,5 +1,6 @@
 package com.img.equran;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
@@ -8,6 +9,8 @@ import android.graphics.Shader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,18 +26,22 @@ public class TeacherProfile extends AppCompatActivity {
 
     TextView tv,email,contact,adr,fnm;
     ImageView img;
-
+    Button btn_message;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_profile);
+
         tv=findViewById(R.id.tv);
         email=findViewById(R.id.em);
         adr=findViewById(R.id.adr);
         contact=findViewById(R.id.cnt);
         fnm=findViewById(R.id.fnm);
-
+        btn_message=findViewById(R.id.bt_msg);
         img=findViewById(R.id.ivm);
+
+
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("users/"+ProfileAdapter.contact);
         contact.setText(ProfileAdapter.contact);
@@ -69,6 +76,13 @@ public class TeacherProfile extends AppCompatActivity {
                 +ProfileAdapter.contact+
                 "?alt=media&token=53e6c894-27a6-4318-8288-d603a039124e").transform(new CircleTransform())
                 .into(img);
+        btn_message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserDetails.chatWith = ProfileAdapter.contact;
+                startActivity(new Intent(TeacherProfile.this, ChatActivity.class));
+            }
+        });
     }
     public class CircleTransform implements Transformation {
         @Override

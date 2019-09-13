@@ -1,6 +1,7 @@
 package com.img.equran;
 
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,9 +23,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
-    Button bt_log,btn_google;
+    Button bt_log,btn_google,std,teacher;
     TextView bt_signup;
     EditText et_Username,et_Password;
+    Dialog d;
+    String select;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +41,36 @@ public class MainActivity extends AppCompatActivity {
         et_Username=findViewById(R.id.etUsername);
         et_Password=findViewById(R.id.etPassword);
 
+        d=new Dialog(MainActivity.this);
+        d.setContentView(R.layout.teacher_list_layout);
+        std=d.findViewById(R.id.std);
+        teacher=d.findViewById(R.id.teacher);
+
+        std.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                select="STD";
+            }
+        });
+        teacher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                select="TCH";
+            }
+        });
+
 
         bt_log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if(select.equals("TCH")) {
 //                startActivity(new Intent(MainActivity.this,navigator.class));
-                login(et_Username.getText().toString(),et_Password.getText().toString());
+                    login(et_Username.getText().toString(), et_Password.getText().toString());
+                }else if(select.equals("STD")){
 
+                }else {
+                    Toast.makeText(MainActivity.this, "Wrong Selection", Toast.LENGTH_SHORT).show();
+                }
             }
         });
        // startActivity(new Intent(MainActivity.this,getponits.class));
@@ -127,4 +153,67 @@ public class MainActivity extends AppCompatActivity {
             rQueue.add(request);
         }
     }
+    public void login2(String user, String pass){
+        user = et_Username.getText().toString();
+        pass = et_Password.getText().toString();
+
+        if(user.equals("")){
+            et_Username.setError("can't be blank");
+        }
+        else if(pass.equals("")){
+            et_Password.setError("can't be blank");
+        }
+        else{
+            String url = "https://teacherequran.firebaseio.com/std.json";
+            final ProgressDialog pd = new ProgressDialog(MainActivity.this);
+            pd.setMessage("Loading...");
+            pd.show();
+
+            final String finalUser = user;
+            final String finalPass = pass;
+            StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
+                @Override
+                public void onResponse(String s) {
+                    if(s.equals("null")){
+                        Toast.makeText(MainActivity.this, "user not found", Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        try {
+                            JSONObject obj = new JSONObject(s);
+
+                            if(!obj.has(finalUser)){
+                                Toast.makeText(MainActivity.this, "user not found", Toast.LENGTH_LONG).show();
+                            }
+                            else if(obj.getJSONObject(finalUser).getString("Password").equals(finalPass)){
+                                UserDetails.phone = finalUser;
+                                UserDetails.password = finalPass;
+                                UserDetails.Name=obj.getJSONObject(finalUser).getString("Name");
+                                UserDetails.Email=obj.getJSONObject(finalUser).getString("Email");
+                                startActivity(new Intent(MainActivity.this, navigator.class));
+                                Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                Toast.makeText(MainActivity.this, "incorrect password", Toast.LENGTH_LONG).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    pd.dismiss();
+                }
+            },new Response.ErrorListener(){
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                    System.out.println("" + volleyError);
+                    Toast.makeText(MainActivity.this, ""+volleyError, Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
+                }
+            });
+
+            RequestQueue rQueue = Volley.newRequestQueue(MainActivity.this);
+            rQueue.add(request);
+        }
+    }
+
 }

@@ -52,12 +52,13 @@ public class Home extends Fragment {
                     "/v0/b/" +
                     "teacherequran.appspot.com/o/img%2F"
                     +UserDetails.phone+
-                    "?alt=media&token=53e6c894-27a6-4318-8288-d603a039124e").transform(new CircleTransform())
+                    "?alt=media&token=53e6c894-27a6-4318-8288-d603a039124e")
+                    .transform(new CircleTransform())
                     .into(imageView);
+
             name1.setText(UserDetails.Name);
             email.setText(UserDetails.Email);
             uid.setText("UID: "+UserDetails.phone);
-
 
             DatabaseReference myRef = database.getReference("username/jalo/remainpoints");
             myRef.addValueEventListener(new ValueEventListener() {
@@ -113,6 +114,7 @@ public class Home extends Fragment {
 
             squaredBitmap.recycle();
             return bitmap;
+
         }
 
         @Override

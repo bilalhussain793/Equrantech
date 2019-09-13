@@ -34,7 +34,6 @@ public class Tutor extends Fragment {
 ListView lv;
 ArrayList<String> arr=new ArrayList<>();
     int totalUsers = 0;
-    ProgressDialog pd;
     public static TeacherAdapter teacheradapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,7 +80,9 @@ ArrayList<String> arr=new ArrayList<>();
             while(i.hasNext()){
                 key = i.next().toString();
 
+                if(!key.equals(UserDetails.phone)) {
                     arr.add(key);
+                }
 
                 totalUsers++;
             }
@@ -98,7 +99,5 @@ ArrayList<String> arr=new ArrayList<>();
             teacheradapter=new TeacherAdapter(getActivity(),arr);
             lv.setAdapter(teacheradapter);
         }
-
-//        pd.dismiss();
     }
 }
