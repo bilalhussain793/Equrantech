@@ -41,39 +41,41 @@ public class MainActivity extends AppCompatActivity {
         et_Username=findViewById(R.id.etUsername);
         et_Password=findViewById(R.id.etPassword);
 
-        d=new Dialog(MainActivity.this);
-        d.setContentView(R.layout.login_select_dialog);
-        std=d.findViewById(R.id.std);
-        teacher=d.findViewById(R.id.teacher);
-        d.show();
-        d.setCancelable(false);
-        std.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                select="STD";
-                d.cancel();
-            }
-        });
-        teacher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                select="TCH";
-                d.cancel();
-            }
-        });
+//        d=new Dialog(MainActivity.this);
+//        d.setContentView(R.layout.login_select_dialog);
+//        std=d.findViewById(R.id.std);
+//        teacher=d.findViewById(R.id.teacher);
+//        d.show();
+//        d.setCancelable(false);
+//        std.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                select="STD";
+//                d.cancel();
+//            }
+//        });
+//        teacher.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                select="TCH";
+//                d.cancel();
+//            }
+//        });
 
 
         bt_log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(select.equals("TCH")) {
-//                startActivity(new Intent(MainActivity.this,navigator.class));
-                    login(et_Username.getText().toString(), et_Password.getText().toString());
-                }else if(select.equals("STD")){
-                    login2(et_Username.getText().toString(), et_Password.getText().toString());
-                }else {
-                    Toast.makeText(MainActivity.this, "Wrong Selection", Toast.LENGTH_SHORT).show();
-                }
+
+                login(et_Username.getText().toString(), et_Password.getText().toString());
+//                if(select.equals("TCH")) {
+////                startActivity(new Intent(MainActivity.this,navigator.class));
+//                    login(et_Username.getText().toString(), et_Password.getText().toString());
+//                }else if(select.equals("STD")){
+//                    login2(et_Username.getText().toString(), et_Password.getText().toString());
+//                }else {
+//                    Toast.makeText(MainActivity.this, "Wrong Selection", Toast.LENGTH_SHORT).show();
+            //}
             }
         });
        // startActivity(new Intent(MainActivity.this,getponits.class));
@@ -124,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
 
                             if(!obj.has(finalUser)){
                                 Toast.makeText(MainActivity.this, "user not found", Toast.LENGTH_LONG).show();
+                                login2(et_Username.getText().toString(), et_Password.getText().toString());
+
                             }
                             else if(obj.getJSONObject(finalUser).getString("Password").equals(finalPass)){
                                 UserDetails.phone = finalUser;
