@@ -27,14 +27,14 @@ public class navigator extends AppCompatActivity {
                             .commit();
                     return true;
                 case R.id.navigation_account:
-                    Home blankFragment3 = new Home();
+                    Account blankFragment3 = new Account();
                     FragmentManager f2 = getSupportFragmentManager();
                     f2.beginTransaction()
                             .replace(R.id.fragment_container, blankFragment3)
                             .commit();
                     return true;
                 case R.id.navigation_options:
-                    Home blankFragment4 = new Home();
+                    Options blankFragment4 = new Options();
                     FragmentManager f4 = getSupportFragmentManager();
                     f4.beginTransaction()
                             .replace(R.id.fragment_container, blankFragment4)

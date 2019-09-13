@@ -60,6 +60,9 @@ public class Home extends Fragment {
             email.setText(UserDetails.Email);
             uid.setText("UID: "+UserDetails.phone);
 
+
+
+
             DatabaseReference myRef = database.getReference("username/jalo/remainpoints");
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -81,7 +84,7 @@ public class Home extends Fragment {
             bt_minssub.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    startActivity(new Intent(getActivity(),getponits.class));
+                    startActivity(new Intent(getActivity(),Fmoney.class));
                 }
             });
 
