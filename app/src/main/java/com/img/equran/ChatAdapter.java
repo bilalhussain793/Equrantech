@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -51,7 +52,16 @@ public class ChatAdapter extends ArrayAdapter<String> {
         final TextView titleText = (TextView) rowView.findViewById(R.id.dec);
         final ImageView imageView = (ImageView) rowView.findViewById(R.id.imv);
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("users/"+maintitle.get(position));
+        DatabaseReference myRef;
+        Toast.makeText(context, ""+UserDetails.Type, Toast.LENGTH_SHORT).show();
+        if(UserDetails.Type.equals("Teacher")){
+            myRef = database.getReference("std/"+maintitle.get(position));
+            imageView.setVisibility(View.GONE);
+        }else{
+            myRef = database.getReference("users/"+maintitle.get(position));
+            imageView.setVisibility(View.VISIBLE);
+        }
+
 
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
