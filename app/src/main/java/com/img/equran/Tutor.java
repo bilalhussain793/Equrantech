@@ -58,18 +58,23 @@ ArrayList<String> arr=new ArrayList<>();
         RequestQueue rQueue = Volley.newRequestQueue(getActivity());
         rQueue.add(request);
 
+if(UserDetails.Type.equals("Teacher"))
+{
+    lv.setVisibility(View.GONE);
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+}
+else {
+    lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                ProfileAdapter.contact=arr.get(position);
-                startActivity(new Intent(getActivity(),TeacherProfile.class));
-                Toast.makeText(getActivity(), ""+arr.get(position), Toast.LENGTH_SHORT).show();
+            ProfileAdapter.contact = arr.get(position);
+            startActivity(new Intent(getActivity(), TeacherProfile.class));
+            Toast.makeText(getActivity(), "" + arr.get(position), Toast.LENGTH_SHORT).show();
 
-            }
-        });
-
+        }
+    });
+}
         return view;
     }
     public void doOnSuccess(String s){
@@ -101,5 +106,6 @@ ArrayList<String> arr=new ArrayList<>();
             teacheradapter=new TeacherAdapter(getActivity(),arr);
             lv.setAdapter(teacheradapter);
         }
-    }
+
+}
 }

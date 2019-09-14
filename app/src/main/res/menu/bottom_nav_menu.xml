@@ -8,18 +8,18 @@
 
     <item
         android:id="@+id/navigation_tutor"
-        android:icon="@drawable/tutorrr"
+        android:icon="@drawable/tuting"
         android:title="Tutors" />
 
 
     <item
         android:id="@+id/chat_frag"
-        android:icon="@drawable/mess"
+        android:icon="@drawable/msging"
         android:title="Messages" />
 
     <item
         android:id="@+id/navigation_account"
-        android:icon="@drawable/acc"
+        android:icon="@drawable/accounting"
         android:title="Account" />
     <item
         android:id="@+id/navigation_options"

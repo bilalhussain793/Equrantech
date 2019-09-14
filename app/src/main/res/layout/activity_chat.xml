@@ -5,12 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/back"
+    android:background="@drawable/quran"
     tools:context=".ChatActivity">
+    <LinearLayout
+android:layout_gravity="center"
+        android:background="#40FFFFFF"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:layout_marginTop="7dp"
+            android:tint="#fff"
+            android:src="@drawable/backtomenu"
+            android:layout_width="30dp"
+            android:layout_height="35dp" />
+        <TextView
+            android:layout_marginTop="9dp"
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:hint="Username"
+            android:layout_marginLeft="20dp"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="20dp"
+
+            />
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal" >
+
+            <Button
+android:layout_marginTop="5dp"
+                android:id="@+id/call_bt"
+                android:layout_width="40dp"
+                android:drawableTint="#FFFFFF"
+                android:layout_height="38dp"
+                android:background="@drawable/videocall"
+                android:layout_marginRight="26dp"
+                android:layout_gravity="center_vertical"
+                android:textAlignment="center"
+
+
+                android:textColor="#fff" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:background="#6BFFFFFF"
         android:layout_weight="20"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView">

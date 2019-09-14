@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ett"
+
     android:gravity="center"
     android:orientation="horizontal">
 
@@ -23,9 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_weight="4"
-        android:padding="4dp"
-        android:tint="#00042E"
-        android:background="#fff"
-        android:src="@android:drawable/ic_menu_send"
+        android:padding="3dp"
+android:tint="#ffff"
+
+        android:src="@drawable/snd"
         android:id="@+id/sendButton"/>
 </LinearLayout>

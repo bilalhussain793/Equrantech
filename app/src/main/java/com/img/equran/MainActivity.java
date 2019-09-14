@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
                             if(!obj.has(finalUser)){
                                 Toast.makeText(MainActivity.this, "user not found", Toast.LENGTH_LONG).show();
-                                login2(et_Username.getText().toString(), et_Password.getText().toString());
+                               // login2(et_Username.getText().toString(), et_Password.getText().toString());
 
                             }
                             else if(obj.getJSONObject(finalUser).getString("Password").equals(finalPass)){

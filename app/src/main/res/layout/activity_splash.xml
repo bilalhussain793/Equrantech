@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/quran"
     android:layout_height="match_parent"
     tools:context=".Splash">
+    <TextView
 
-</android.support.constraint.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Easy Quran"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="46sp"
+        android:textStyle="bold"
+        app:fontFamily="cursive" />
+
+    <ImageView
+        android:layout_marginLeft="20dp"
+        android:padding="20dp"
+        android:foregroundGravity="center"
+        android:layout_gravity="center"
+        android:src="@drawable/eq_logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+</LinearLayout>
