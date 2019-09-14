@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         btn_google=findViewById(R.id.sign_in_button);
         et_Username=findViewById(R.id.etUsername);
         et_Password=findViewById(R.id.etPassword);
-
         radioGroup=findViewById(R.id.radiogrp);
 
 //        d=new Dialog(MainActivity.this);
@@ -66,13 +65,10 @@ public class MainActivity extends AppCompatActivity {
 //                d.cancel();
 //            }
 //        });
-
-
         bt_log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                login(et_Username.getText().toString(), et_Password.getText().toString());
                 int selectedId=radioGroup.getCheckedRadioButtonId();
                 radioButton=(RadioButton)findViewById(selectedId);
 //                Toast.makeText(MainActivity.this,radioButton.getText(),Toast.LENGTH_SHORT).show();
@@ -81,12 +77,10 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(new Intent(MainActivity.this,navigator.class));
                     login2(et_Username.getText().toString(), et_Password.getText().toString());
                     UserDetails.Type="Student";
-                }else if(select.equals("Teacher")){
+                }else {
                     login(et_Username.getText().toString(), et_Password.getText().toString());
                     UserDetails.Type="Teacher";
-                }else {
-                    Toast.makeText(MainActivity.this, "Wrong Selection", Toast.LENGTH_SHORT).show();
-            }
+                }
             }
         });
        // startActivity(new Intent(MainActivity.this,getponits.class));
