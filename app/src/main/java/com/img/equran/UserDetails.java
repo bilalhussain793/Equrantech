@@ -6,4 +6,5 @@ public class UserDetails {
     public static String chatWith="";
     public static String Name="";
     public static String Email="";
+    public static String Type="";
 }

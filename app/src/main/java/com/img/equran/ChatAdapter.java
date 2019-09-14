@@ -50,7 +50,7 @@ public class ChatAdapter extends ArrayAdapter<String> {
 
         final TextView titleText = (TextView) rowView.findViewById(R.id.dec);
         final ImageView imageView = (ImageView) rowView.findViewById(R.id.imv);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("users/"+maintitle.get(position));
 
         // Read from the database
@@ -60,8 +60,8 @@ public class ChatAdapter extends ArrayAdapter<String> {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 String value = dataSnapshot.child("Name").getValue(String.class);
-                String email = dataSnapshot.child("Email").getValue(String.class);
-                String bal = dataSnapshot.child("Name").getValue(String.class);
+               // String email = dataSnapshot.child("Email").getValue(String.class);
+              //  String bal = dataSnapshot.child("Name").getValue(String.class);
                // Log.d(TAG, "Value is: " + value);
                 titleText.setText(value);
 
@@ -71,6 +71,37 @@ public class ChatAdapter extends ArrayAdapter<String> {
                         +maintitle.get(position)+
                         "?alt=media&token=53e6c894-27a6-4318-8288-d603a039124e").transform(new CircleTransform())
                         .into(imageView);
+                if(maintitle.get(position).equals("")){
+                    DatabaseReference myRef = database.getReference("std/"+maintitle.get(position));
+
+                    // Read from the database
+                    myRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            // This method is called once with the initial value and again
+                            // whenever data at this location is updated.
+                            String value = dataSnapshot.child("Name").getValue(String.class);
+                            // String email = dataSnapshot.child("Email").getValue(String.class);
+                            //  String bal = dataSnapshot.child("Name").getValue(String.class);
+                            // Log.d(TAG, "Value is: " + value);
+                            titleText.setText(value);
+
+                            Picasso.with(context).load("https://firebasestorage.googleapis.com" +
+                                    "/v0/b/" +
+                                    "teacherequran.appspot.com/o/img%2F"
+                                    +maintitle.get(position)+
+                                    "?alt=media&token=53e6c894-27a6-4318-8288-d603a039124e").transform(new CircleTransform())
+                                    .into(imageView);
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError error) {
+                            // Failed to read value
+                            // Log.w(TAG, "Failed to read value.", error.toException());
+
+                        }
+                    });
+                }
 
             }
 
@@ -83,27 +114,27 @@ public class ChatAdapter extends ArrayAdapter<String> {
             }
         });
 
-        String url = "https://teacherequran.firebaseio.com/users/"+maintitle.get(position)+".json";
+//        String url = "https://teacherequran.firebaseio.com/users/"+maintitle.get(position)+".json";
+//
+//        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
+//            @Override
+//            public void onResponse(String s) {
+////                doOnSuccess(s);
+////                titleText.setText(s);
+//
+//            }
+//        },new Response.ErrorListener(){
+//            @Override
+//            public void onErrorResponse(VolleyError volleyError) {
+//                System.out.println("" + volleyError);
+//            }
+//        });
+//        RequestQueue rQueue = Volley.newRequestQueue(context);
+//        rQueue.add(request);
 
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
-            @Override
-            public void onResponse(String s) {
-//                doOnSuccess(s);
-                titleText.setText(s);
+        titleText.setText(maintitle.get(position));
 
-            }
-        },new Response.ErrorListener(){
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                System.out.println("" + volleyError);
-            }
-        });
-        RequestQueue rQueue = Volley.newRequestQueue(context);
-        rQueue.add(request);
-
-         titleText.setText(maintitle.get(position));
-
-titleText.setText(maintitle.get(position));
+        titleText.setText(maintitle.get(position));
         return rowView;
 
     }

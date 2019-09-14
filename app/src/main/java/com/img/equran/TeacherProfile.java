@@ -40,8 +40,6 @@ public class TeacherProfile extends AppCompatActivity {
         btn_message=findViewById(R.id.bt_msg);
         img=findViewById(R.id.ivm);
 
-
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("users/"+ProfileAdapter.contact);
         contact.setText(ProfileAdapter.contact);
@@ -112,7 +110,6 @@ public class TeacherProfile extends AppCompatActivity {
             squaredBitmap.recycle();
             return bitmap;
         }
-
         @Override
         public String key() {
             return "circle";

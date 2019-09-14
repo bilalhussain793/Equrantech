@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
     EditText et_Username,et_Password;
     Dialog d;
     String select;
-
+    private RadioGroup radioGroup;
+    private RadioButton radioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         btn_google=findViewById(R.id.sign_in_button);
         et_Username=findViewById(R.id.etUsername);
         et_Password=findViewById(R.id.etPassword);
+
+        radioGroup=findViewById(R.id.radiogrp);
 
 //        d=new Dialog(MainActivity.this);
 //        d.setContentView(R.layout.login_select_dialog);
@@ -68,14 +73,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 login(et_Username.getText().toString(), et_Password.getText().toString());
-//                if(select.equals("TCH")) {
-////                startActivity(new Intent(MainActivity.this,navigator.class));
-//                    login(et_Username.getText().toString(), et_Password.getText().toString());
-//                }else if(select.equals("STD")){
-//                    login2(et_Username.getText().toString(), et_Password.getText().toString());
-//                }else {
-//                    Toast.makeText(MainActivity.this, "Wrong Selection", Toast.LENGTH_SHORT).show();
-            //}
+                int selectedId=radioGroup.getCheckedRadioButtonId();
+                radioButton=(RadioButton)findViewById(selectedId);
+//                Toast.makeText(MainActivity.this,radioButton.getText(),Toast.LENGTH_SHORT).show();
+                select=radioButton.getText().toString();
+                if(select.equals("Student")) {
+//                startActivity(new Intent(MainActivity.this,navigator.class));
+                    login2(et_Username.getText().toString(), et_Password.getText().toString());
+                    UserDetails.Type="Student";
+                }else if(select.equals("Teacher")){
+                    login(et_Username.getText().toString(), et_Password.getText().toString());
+                    UserDetails.Type="Teacher";
+                }else {
+                    Toast.makeText(MainActivity.this, "Wrong Selection", Toast.LENGTH_SHORT).show();
+            }
             }
         });
        // startActivity(new Intent(MainActivity.this,getponits.class));

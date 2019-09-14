@@ -75,6 +75,31 @@
                 android:inputType="textPassword"
                 android:padding="12dp" />
 
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#4FFFFFFF"
+                android:layout_gravity="center"
+                android:paddingRight= "10dp"
+                android:id="@+id/radiogrp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:id="@+id/bst"
+                    android:text="Student"
+                    android:textColor="#ffffff" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btc"
+                    android:text="Teacher"
+                    android:textColor="#ffffff" />
+
+            </RadioGroup>
+
 
             <Button
                 android:id="@+id/login_bt"

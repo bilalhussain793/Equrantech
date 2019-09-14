@@ -64,8 +64,8 @@ public class MessageFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 ProfileAdapter.contact=arr.get(position);
-                startActivity(new Intent(getActivity(),TeacherProfile.class));
-                Toast.makeText(getActivity(), ""+arr.get(position), Toast.LENGTH_SHORT).show();
+                UserDetails.chatWith = ProfileAdapter.contact;
+                startActivity(new Intent(getActivity(), ChatActivity.class));
 
             }
         });

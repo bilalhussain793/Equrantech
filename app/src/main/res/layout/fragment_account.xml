@@ -4,11 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Account">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,5 +59,98 @@
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:background="#BEFFFFFF"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Education"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"
+                android:textColor="#3F51B5"
+                android:textSize="17dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Interests"
+                android:textStyle="bold"
+                android:background="#22000000"
+                android:paddingLeft="10dp"
+                android:textColor="#3F51B5"
+                android:textSize="17dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Languages"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"
+                android:textColor="#3F51B5"
+                android:textSize="17dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Schedule"
+                android:textStyle="bold"
+                android:background="#22000000"
+                android:paddingLeft="10dp"
+                android:textColor="#3F51B5"
+                android:textSize="17dp"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#7EFFFFFF"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Lorem Ipsum Lorem Ipsum Lorem Ipsum"
+                android:id="@+id/em"
+                android:paddingLeft="20dp"
+                android:textColor="@color/contentcolor"
+                android:textSize="16dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="20dp"
+                android:hint="Lorem IpsumLorem IpsumLorem IpsumLorem Ipsum"
+                android:id="@+id/cnt"
+                android:background="#22000000"
+                android:textColor="@color/contentcolor"
+                android:textSize="16dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum"
+                android:paddingLeft="20dp"
+                android:id="@+id/adr"
+                android:textColor="@color/contentcolor"
+                android:textSize="16dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="20dp"
+                android:hint="Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum"
+                android:id="@+id/fnm"
+                android:background="#22000000"
+                android:textColor="@color/contentcolor"
+                android:textSize="16dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
 
 </FrameLayout>
