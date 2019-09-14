@@ -2,13 +2,153 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/quran"
     android:layout_height="match_parent"
     tools:context=".Options">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+  <LinearLayout
 
+      android:layout_width="match_parent"
+      android:orientation="vertical"
+      android:layout_height="match_parent">
+
+  <LinearLayout
+      android:id="@+id/ln_subscribe"
+      android:background="#40FFFFFF"
+android:layout_marginTop="150dp"
+      android:layout_width="match_parent"
+      android:orientation="horizontal"
+      android:layout_height="65dp">
+      <ImageView
+          android:src="@drawable/subscribe"
+          android:layout_width="30dp"
+          android:tint="#fff"
+          android:layout_height="30dp" />
+      <TextView
+          android:layout_marginLeft="10dp"
+          android:textSize="20dp"
+          android:textColor="#FFFFFF"
+          android:text="Subscribe"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" />
+
+
+  </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/ln_refral"
+          android:background="#40FFFFFF"
+          android:layout_marginTop="1dp"
+          android:layout_width="match_parent"
+          android:orientation="horizontal"
+          android:layout_height="65dp">
+          <ImageView
+              android:src="@drawable/referral"
+              android:layout_width="30dp"
+              android:tint="#fff"
+              android:layout_height="30dp" />
+          <TextView
+              android:layout_marginLeft="10dp"
+              android:textSize="20dp"
+              android:textColor="#FFFFFF"
+              android:text="Refral"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+
+
+      </LinearLayout>
+
+
+      <LinearLayout
+          android:id="@+id/ln_freemin"
+          android:background="#40FFFFFF"
+          android:layout_marginTop="1dp"
+          android:layout_width="match_parent"
+          android:orientation="horizontal"
+          android:layout_height="65dp">
+          <ImageView
+              android:src="@drawable/mins"
+              android:layout_width="30dp"
+              android:tint="#fff"
+              android:layout_height="30dp" />
+          <TextView
+              android:layout_marginLeft="10dp"
+              android:textSize="20dp"
+              android:textColor="#FFFFFF"
+              android:text="FreeMintues"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/ln_history"
+          android:background="#40FFFFFF"
+          android:layout_marginTop="1dp"
+          android:layout_width="match_parent"
+          android:orientation="horizontal"
+          android:layout_height="65dp">
+          <ImageView
+              android:src="@drawable/history"
+              android:layout_width="30dp"
+              android:tint="#fff"
+              android:layout_height="30dp" />
+          <TextView
+              android:layout_marginLeft="10dp"
+              android:textSize="20dp"
+              android:textColor="#FFFFFF"
+              android:text="History"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/ln_help"
+          android:background="#40FFFFFF"
+          android:layout_marginTop="1dp"
+          android:layout_width="match_parent"
+          android:orientation="horizontal"
+          android:layout_height="65dp">
+          <ImageView
+              android:src="@drawable/help"
+              android:layout_width="30dp"
+              android:tint="#fff"
+              android:layout_height="30dp" />
+          <TextView
+              android:layout_marginLeft="10dp"
+              android:textSize="20dp"
+              android:textColor="#FFFFFF"
+              android:text="Help!"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/ln_rate"
+          android:background="#40FFFFFF"
+          android:layout_marginTop="1dp"
+          android:layout_width="match_parent"
+          android:orientation="horizontal"
+          android:layout_height="65dp">
+          <ImageView
+              android:src="@drawable/rate"
+              android:layout_width="30dp"
+              android:tint="#fff"
+              android:layout_height="30dp" />
+          <TextView
+              android:layout_marginLeft="10dp"
+              android:textSize="20dp"
+              android:textColor="#FFFFFF"
+              android:text="Rate"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+
+
+      </LinearLayout>
+  </LinearLayout>
 </FrameLayout>
