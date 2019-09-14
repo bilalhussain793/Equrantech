@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:background="@drawable/quran"
     android:orientation="vertical"
-
     android:layout_height="match_parent"
     tools:context=".Register">
 
@@ -42,6 +41,7 @@
             android:layout_gravity="center"
             android:id="@+id/tech"
             android:layout_marginTop="20dp"
+            android:buttonTint="#FFFFFF"
             android:layout_width="wrap_content"
             android:textColor="#ffffff"
             android:layout_height="wrap_content"
@@ -54,6 +54,7 @@
             android:layout_width="wrap_content"
             android:textColor="#ffffff"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFFFFF"
             android:text="Student "
             android:layout_gravity="center"
             android:padding="10dp"
@@ -92,6 +93,7 @@
         <CheckBox
             android:id="@+id/arabic"
             android:layout_marginTop="20dp"
+            android:buttonTint="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
@@ -104,6 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Practice Quran"
+            android:buttonTint="#FFFFFF"
             android:textColor="#ffffff"
             android:padding="10dp"
             android:textSize="18sp" />
@@ -115,6 +118,7 @@
             android:text="Learn Quran"
             android:textColor="#ffffff"
             android:padding="10dp"
+            android:buttonTint="#FFFFFF"
             android:textSize="18sp" />
 
         <CheckBox
@@ -123,6 +127,7 @@
             android:layout_height="wrap_content"
             android:text="Correction in Hifaz"
             android:padding="10dp"
+            android:buttonTint="#FFFFFF"
             android:textColor="#ffffff"
             android:textSize="18sp" />
 
@@ -130,8 +135,9 @@
             android:id="@+id/bt_next1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
+            android:background="@drawable/btngreenstyle"
             android:text="Next"
+
             android:textStyle="bold" />
 
 
@@ -166,6 +172,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:padding="10dp"
+            android:buttonTint="#FFFFFF"
             android:textColor="#ffffff"
             android:text="Self Improvement"
             android:textSize="18sp" />
@@ -173,6 +180,7 @@
         <CheckBox
             android:id="@+id/cb_study"
             android:layout_width="match_parent"
+            android:buttonTint="#FFFFFF"
             android:layout_height="wrap_content"
             android:padding="10dp"  android:textColor="#ffffff"
             android:text="Study Abroad"
@@ -181,6 +189,7 @@
         <CheckBox
             android:id="@+id/cb_pass"
             android:layout_width="match_parent"
+            android:buttonTint="#FFFFFF"
             android:layout_height="wrap_content"
             android:padding="10dp"  android:textColor="#ffffff"
             android:text="Pass an Interview"
@@ -189,6 +198,7 @@
         <CheckBox
             android:id="@+id/cb_Excel"
             android:layout_width="match_parent"
+            android:buttonTint="#FFFFFF"
             android:layout_height="wrap_content"
             android:padding="10dp"  android:textColor="#ffffff"
             android:text="Excel at work/Job"
@@ -198,7 +208,7 @@
             android:id="@+id/btn_next2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
+            android:background="@drawable/btngreenstyle"
             android:text="Next"
             android:textColor="@color/colorAccent"
             android:textStyle="bold" />
@@ -221,6 +231,7 @@
         <EditText
             android:drawableTint="#ffff"
             android:id="@+id/etUsername"
+            android:textColorHint="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
@@ -236,8 +247,9 @@
             android:drawablePadding="16dp" />
 
         <EditText
-            android:drawableTint="#FFFFFF"
+            android:drawableTint="#FFFCFC"
             android:id="@+id/etEmail"
+            android:textColorHint="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
@@ -255,6 +267,7 @@
         <EditText
             android:drawableTint="#ffff"
             android:id="@+id/etPassword"
+            android:textColorHint="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -278,7 +291,7 @@
             android:orientation="horizontal">
 
             <Spinner
-
+android:backgroundTint="#ffff"
                 android:id="@+id/Country"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
@@ -290,6 +303,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Contact"
+                android:textColorHint="#FFFFFF"
 
                 android:inputType="textPassword"
                 android:textColor="#ffffff"
@@ -320,7 +334,7 @@
                 android:layout_height="match_parent"
                 android:text="Gender:"
                 android:layout_marginLeft="5dp"
-
+                android:textColor="#FFFFFF"
 
                 android:textSize="19dp"/>
 
@@ -329,6 +343,7 @@
             <Spinner
                 android:id="@+id/gen"
                 android:layout_width="30dp"
+                android:backgroundTint="#FFFFFF"
                 android:layout_height="wrap_content"
                 android:entries="@array/country_arrays"
                 android:layout_weight="1" />
@@ -347,6 +362,7 @@
             android:inputType="text"
             android:textColor="#ffffff"
             android:padding="12dp"
+            android:textColorHint="#FFFFFF"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="20dp"
@@ -359,7 +375,7 @@
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
+            android:background="@drawable/btngreenstyle"
             android:text="Next"
             android:textColor="@color/colorAccent"
             android:textStyle="bold" />

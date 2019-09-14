@@ -5,11 +5,12 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class navigator extends AppCompatActivity {
     private TextView mTextMessage;
-
+    BottomNavigationView navView;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -20,25 +21,31 @@ public class navigator extends AppCompatActivity {
 
 
                 case R.id.navigation_home:
+
                     Home blankFragment = new Home();
                     FragmentManager f = getSupportFragmentManager();
                     f.beginTransaction()
                             .replace(R.id.fragment_container, blankFragment)
                             .commit();
+
                     return true;
                 case R.id.navigation_account:
+
                     Account blankFragment3 = new Account();
                     FragmentManager f2 = getSupportFragmentManager();
                     f2.beginTransaction()
                             .replace(R.id.fragment_container, blankFragment3)
                             .commit();
+
                     return true;
                 case R.id.navigation_options:
+
                     Options blankFragment4 = new Options();
                     FragmentManager f4 = getSupportFragmentManager();
                     f4.beginTransaction()
                             .replace(R.id.fragment_container, blankFragment4)
                             .commit();
+
                     return true;
                 case R.id.navigation_tutor:
                     Tutor blankFragment5 = new Tutor();
@@ -46,13 +53,16 @@ public class navigator extends AppCompatActivity {
                     f5.beginTransaction()
                             .replace(R.id.fragment_container, blankFragment5)
                             .commit();
+
                     return true;
                 case R.id.chat_frag:
+
                     MessageFragment blankFragment6 = new MessageFragment();
                     FragmentManager f6 = getSupportFragmentManager();
                     f6.beginTransaction()
                             .replace(R.id.fragment_container, blankFragment6)
                             .commit();
+
                     return true;
             }
             return false;
@@ -63,7 +73,7 @@ public class navigator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigator);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+         navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         Home blankFragment = new Home();
@@ -72,6 +82,13 @@ public class navigator extends AppCompatActivity {
         fm.beginTransaction()
                 .replace(R.id.fragment_container, blankFragment)
                 .commit();
+
+        if (UserDetails.Type.equals("Teacher")){
+
+            navView.findViewById(R.id.navigation_tutor).setVisibility(View.GONE);
+
+        }
+
     }
 
 }

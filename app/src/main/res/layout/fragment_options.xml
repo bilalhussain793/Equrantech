@@ -15,11 +15,12 @@
   <LinearLayout
       android:id="@+id/ln_subscribe"
       android:background="#40FFFFFF"
-android:layout_marginTop="150dp"
+      android:layout_marginTop="1dp"
       android:layout_width="match_parent"
       android:orientation="horizontal"
       android:layout_height="65dp">
       <ImageView
+          android:layout_marginTop="15dp"
           android:src="@drawable/subscribe"
           android:layout_width="30dp"
           android:tint="#fff"
@@ -27,6 +28,7 @@ android:layout_marginTop="150dp"
       <TextView
           android:layout_marginLeft="10dp"
           android:textSize="20dp"
+          android:layout_marginTop="15dp"
           android:textColor="#FFFFFF"
           android:text="Subscribe"
           android:layout_width="wrap_content"
@@ -46,10 +48,12 @@ android:layout_marginTop="150dp"
               android:src="@drawable/referral"
               android:layout_width="30dp"
               android:tint="#fff"
+              android:layout_marginTop="15dp"
               android:layout_height="30dp" />
           <TextView
               android:layout_marginLeft="10dp"
               android:textSize="20dp"
+              android:layout_marginTop="15dp"
               android:textColor="#FFFFFF"
               android:text="Refral"
               android:layout_width="wrap_content"
@@ -69,12 +73,14 @@ android:layout_marginTop="150dp"
           <ImageView
               android:src="@drawable/mins"
               android:layout_width="30dp"
+              android:layout_marginTop="15dp"
               android:tint="#fff"
               android:layout_height="30dp" />
           <TextView
               android:layout_marginLeft="10dp"
               android:textSize="20dp"
               android:textColor="#FFFFFF"
+              android:layout_marginTop="15dp"
               android:text="FreeMintues"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content" />
@@ -92,11 +98,13 @@ android:layout_marginTop="150dp"
           <ImageView
               android:src="@drawable/history"
               android:layout_width="30dp"
+              android:layout_marginTop="15dp"
               android:tint="#fff"
               android:layout_height="30dp" />
           <TextView
               android:layout_marginLeft="10dp"
               android:textSize="20dp"
+              android:layout_marginTop="15dp"
               android:textColor="#FFFFFF"
               android:text="History"
               android:layout_width="wrap_content"
@@ -116,10 +124,12 @@ android:layout_marginTop="150dp"
               android:src="@drawable/help"
               android:layout_width="30dp"
               android:tint="#fff"
+              android:layout_marginTop="15dp"
               android:layout_height="30dp" />
           <TextView
               android:layout_marginLeft="10dp"
               android:textSize="20dp"
+              android:layout_marginTop="15dp"
               android:textColor="#FFFFFF"
               android:text="Help!"
               android:layout_width="wrap_content"
@@ -138,13 +148,40 @@ android:layout_marginTop="150dp"
           <ImageView
               android:src="@drawable/rate"
               android:layout_width="30dp"
+              android:layout_marginTop="15dp"
               android:tint="#fff"
               android:layout_height="30dp" />
           <TextView
               android:layout_marginLeft="10dp"
               android:textSize="20dp"
               android:textColor="#FFFFFF"
+              android:layout_marginTop="15dp"
               android:text="Rate"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content" />
+
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/ln_logout"
+          android:background="#40FFFFFF"
+          android:layout_marginTop="1dp"
+          android:layout_width="match_parent"
+          android:orientation="horizontal"
+          android:layout_height="65dp">
+          <ImageView
+              android:src="@drawable/logout"
+              android:layout_width="30dp"
+              android:layout_marginTop="15dp"
+              android:tint="#fff"
+              android:layout_height="30dp" />
+          <TextView
+              android:layout_marginLeft="10dp"
+              android:textSize="20dp"
+              android:textColor="#FFFFFF"
+              android:layout_marginTop="15dp"
+              android:text="Logout"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content" />
 
