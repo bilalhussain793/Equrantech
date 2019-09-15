@@ -11,7 +11,11 @@
         android:roundIcon="@drawable/eq_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Fmoney"></activity>
+        <activity android:name=".Help"></activity>
+        <activity android:name=".History" />
+        <activity android:name=".FreeMins" />
+        <activity android:name=".Refrel" />
+        <activity android:name=".Fmoney" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".TeacherProfile" />

@@ -54,7 +54,9 @@
 
 
     </string-array>
-
+    <string name="intro">What is Easy Quran?<a href="" target="_top"></a></string>
+    <string name="tutors">I,m a beginner.<a href="" target="_top"></a></string>
+    <string name="beginner">Why is not Easy Quran free?<a href="" target="_top"></a></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

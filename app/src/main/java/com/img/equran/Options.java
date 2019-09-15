@@ -1,6 +1,7 @@
 package com.img.equran;
 
 import android.content.Context;
+import android.graphics.Path;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -56,7 +57,7 @@ LinearLayout subscribe,refral,freemins,history,help,rate;
         subscribe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Subscribe", Toast.LENGTH_SHORT).show();
+               startActivity(new Intent(getActivity(),Fmoney.class));
             }
         });
 
@@ -64,7 +65,7 @@ LinearLayout subscribe,refral,freemins,history,help,rate;
         refral.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Refral", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(),Refrel.class));
             }
         });
 
@@ -72,7 +73,7 @@ LinearLayout subscribe,refral,freemins,history,help,rate;
         freemins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "FreeMin", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(),FreeMins.class));
             }
         });
 
@@ -80,14 +81,14 @@ LinearLayout subscribe,refral,freemins,history,help,rate;
         history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "History", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(),History.class));
             }
         });
 
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Help", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(),Help.class));
             }
         });
 
