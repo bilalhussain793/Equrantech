@@ -24,8 +24,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="150dp"
                 android:layout_height="150dp" />
-            <TextView
 
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Easy Quran"
@@ -37,14 +37,13 @@
                 app:fontFamily="cursive" />
 
             <EditText
-
                 android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="User Contact"
                 android:background="#40FFFFFF"
                 android:textColorHint="#8FFFFFFF"
-                android:inputType="text"
+                android:inputType="phone"
                 android:textColor="#ffffff"
                 android:drawableTint="#ffff"
                 android:padding="12dp"
