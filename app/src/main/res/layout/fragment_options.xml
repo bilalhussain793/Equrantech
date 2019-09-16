@@ -17,6 +17,7 @@
       android:background="#40FFFFFF"
       android:layout_marginTop="1dp"
       android:layout_width="match_parent"
+      android:paddingLeft="10dp"
       android:orientation="horizontal"
       android:layout_height="65dp">
       <ImageView
@@ -42,6 +43,7 @@
           android:background="#40FFFFFF"
           android:layout_marginTop="1dp"
           android:layout_width="match_parent"
+          android:paddingLeft="10dp"
           android:orientation="horizontal"
           android:layout_height="65dp">
           <ImageView
@@ -55,7 +57,7 @@
               android:textSize="20dp"
               android:layout_marginTop="15dp"
               android:textColor="#FFFFFF"
-              android:text="Refral"
+              android:text="Referral"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content" />
 
@@ -69,6 +71,7 @@
           android:layout_marginTop="1dp"
           android:layout_width="match_parent"
           android:orientation="horizontal"
+          android:paddingLeft="10dp"
           android:layout_height="65dp">
           <ImageView
               android:src="@drawable/mins"
@@ -93,6 +96,7 @@
           android:background="#40FFFFFF"
           android:layout_marginTop="1dp"
           android:layout_width="match_parent"
+          android:paddingLeft="10dp"
           android:orientation="horizontal"
           android:layout_height="65dp">
           <ImageView
@@ -119,6 +123,7 @@
           android:layout_marginTop="1dp"
           android:layout_width="match_parent"
           android:orientation="horizontal"
+          android:paddingLeft="10dp"
           android:layout_height="65dp">
           <ImageView
               android:src="@drawable/help"
@@ -144,6 +149,7 @@
           android:layout_marginTop="1dp"
           android:layout_width="match_parent"
           android:orientation="horizontal"
+          android:paddingLeft="10dp"
           android:layout_height="65dp">
           <ImageView
               android:src="@drawable/rate"
@@ -169,6 +175,7 @@
           android:layout_marginTop="1dp"
           android:layout_width="match_parent"
           android:orientation="horizontal"
+          android:paddingLeft="10dp"
           android:layout_height="65dp">
           <ImageView
               android:src="@drawable/logout"

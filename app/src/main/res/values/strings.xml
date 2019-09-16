@@ -45,14 +45,12 @@
 
     </string-array>
     <string-array name="country_code">
-        <item>-</item>
-        <item>country</item>
-
-        <item>india</item>
         <item>Pakistan</item>
-        <item>South africe</item>
-
-
+        <item>Saudi Arabia</item>
+        <item>Iran</item>
+        <item>Indonesia</item>
+        <item>Bangladesh</item>
+        <item>UAE</item>
     </string-array>
     <string name="intro">What is Easy Quran?<a href="" target="_top"></a></string>
     <string name="tutors">I,m a beginner.<a href="" target="_top"></a></string>

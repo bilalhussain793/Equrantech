@@ -40,7 +40,7 @@ import java.util.Iterator;
 
 public class Options extends Fragment {
 
-LinearLayout subscribe,refral,freemins,history,help,rate;
+LinearLayout subscribe,refral,freemins,history,help,rate,logout;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,6 +52,14 @@ LinearLayout subscribe,refral,freemins,history,help,rate;
         history=view.findViewById(R.id.ln_history);
        help =view.findViewById(R.id.ln_help);
         rate=view.findViewById(R.id.ln_rate);
+        logout=view.findViewById(R.id.ln_logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
 
 
         subscribe.setOnClickListener(new View.OnClickListener() {
