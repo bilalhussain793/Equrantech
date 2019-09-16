@@ -104,6 +104,17 @@ public class MessageFragment extends Fragment {
             //usersList.setVisibility(View.VISIBLE);
             teacheradapter=new TeacherAdapter(getActivity(),arr);
             lv.setAdapter(new ChatAdapter(getActivity(),arr));
+//            teacheradapter.notifyDataSetChanged();
+
         }
     }
+    @Override
+    public void onDetach() {
+        // super.onDetach();
+        // PUT YOUR CODE HERE
+        super.onDetach();
+//        getActivity().finish();
+//        teacheradapter.notifyDataSetChanged();
+    }
+
 }

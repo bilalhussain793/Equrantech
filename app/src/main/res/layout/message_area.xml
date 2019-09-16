@@ -12,6 +12,7 @@
         android:layout_weight="1"
         android:layout_marginLeft="5dp"
         android:textColorHint="#CFD8DC"
+
         android:textColor="#FFFFFF"
         android:hint="Write a message..."
         android:id="@+id/messageArea"

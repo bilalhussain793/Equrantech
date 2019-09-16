@@ -56,7 +56,7 @@ public class ChatAdapter extends ArrayAdapter<String> {
         Toast.makeText(context, ""+UserDetails.Type, Toast.LENGTH_SHORT).show();
         if(UserDetails.Type.equals("Teacher")){
             myRef = database.getReference("std/"+maintitle.get(position));
-            imageView.setVisibility(View.GONE);
+            imageView.setVisibility(View.VISIBLE);
         }else{
             myRef = database.getReference("users/"+maintitle.get(position));
             imageView.setVisibility(View.VISIBLE);

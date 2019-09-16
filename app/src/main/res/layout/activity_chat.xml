@@ -12,24 +12,34 @@ android:layout_gravity="center"
         android:background="#40FFFFFF"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
+        android:layout_marginBottom="5dp"
         android:layout_height="50dp">
         <ImageView
             android:layout_marginTop="7dp"
             android:tint="#fff"
             android:src="@drawable/backtomenu"
+            android:layout_marginLeft="10dp"
             android:layout_width="30dp"
             android:layout_height="35dp" />
+        <ImageView
+            android:src="@drawable/addimage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="1dp"
+            android:layout_gravity="center"
+            android:id="@+id/iv"/>
         <TextView
-            android:layout_marginTop="9dp"
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:hint="Username"
-            android:layout_marginLeft="20dp"
+            android:hint="Username"
+            android:layout_marginLeft="10dp"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:textSize="20dp"
+            android:textSize="17dp"
+            android:layout_gravity="center"
 
             />
 
@@ -41,7 +51,7 @@ android:layout_gravity="center"
             android:orientation="horizontal" >
 
             <Button
-android:layout_marginTop="5dp"
+                android:layout_marginTop="5dp"
                 android:id="@+id/call_bt"
                 android:layout_width="40dp"
                 android:drawableTint="#FFFFFF"
@@ -50,8 +60,6 @@ android:layout_marginTop="5dp"
                 android:layout_marginRight="26dp"
                 android:layout_gravity="center_vertical"
                 android:textAlignment="center"
-
-
                 android:textColor="#fff" />
 
         </LinearLayout>

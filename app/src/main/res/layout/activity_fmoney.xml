@@ -146,8 +146,6 @@
                     android:background="@drawable/customborder"
                     android:orientation="horizontal">
 
-
-
                     <CheckBox
                         android:id="@+id/chkmonth"
                         android:layout_width="wrap_content"

@@ -24,7 +24,6 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:tint="#FFFFFF"
                 android:layout_margin="10dp"
                 android:src="@drawable/addimage"
                 />
@@ -228,9 +227,8 @@
                 android:layout_gravity="center"
                 android:background="@drawable/btngreenstyle"
                 android:textColor="#fff"
-                android:paddingLeft="15dp"
-                android:layout_marginLeft="40dp"
-                android:paddingRight="15dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
                 android:id="@+id/btn_reg"/>
 
             </LinearLayout>

@@ -27,7 +27,6 @@ public class navigator extends AppCompatActivity {
 
                 target.setVisible(false);
 
-                // navView.findViewById(R.id.navigation_tutor).setVisibility(View.GONE);
             }
 
             switch (item.getItemId()) {
@@ -39,6 +38,7 @@ public class navigator extends AppCompatActivity {
                                 .replace(R.id.fragment_container, blankFragment)
                                 .addToBackStack(null)
                                 .commit();
+
                     return true;
                 case R.id.navigation_account:
 
@@ -103,10 +103,8 @@ public class navigator extends AppCompatActivity {
         fm.beginTransaction()
                 .replace(R.id.fragment_container, blankFragment)
                 .commit();
-
         if (UserDetails.Type.equals("Teacher")){
             navView.findViewById(R.id.navigation_tutor).setVisibility(View.GONE);
         }
-
     }
 }

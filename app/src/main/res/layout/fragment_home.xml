@@ -188,6 +188,8 @@
         android:background="@android:color/background_dark"
         android:text="Wallet"
         android:textColor="@android:color/background_light"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:textStyle="bold" />
 
 </LinearLayout>

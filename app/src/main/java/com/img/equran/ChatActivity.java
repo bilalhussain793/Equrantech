@@ -1,6 +1,11 @@
 package com.img.equran;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Shader;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +32,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +42,7 @@ import java.util.Random;
 public class ChatActivity extends AppCompatActivity {
     LinearLayout layout;
     RelativeLayout layout_2;
-    ImageView sendButton;
+    ImageView sendButton,iv;
     EditText messageArea;
     ScrollView scrollView;
     Button calling;
@@ -57,9 +64,16 @@ public class ChatActivity extends AppCompatActivity {
         messageArea = (EditText)findViewById(R.id.messageArea);
         scrollView = (ScrollView)findViewById(R.id.scrollView);
         calling=findViewById(R.id.call_bt);
+        iv=findViewById(R.id.iv);
         int r;
         final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
-
+        Picasso.with(ChatActivity.this).load("https://firebasestorage.googleapis.com" +
+                "/v0/b/" +
+                "teacherequran.appspot.com/o/img%2F"
+                +UserDetails.chatWith+
+                "?alt=media&token=53e6c894-27a6-4318-8288-d603a039124e")
+                .transform(new CircleTransform())
+                .into(iv);
         for(r=0;r<10; r++){
 
             calling.startAnimation(myAnim);
@@ -69,6 +83,7 @@ public class ChatActivity extends AppCompatActivity {
 
         if(UserDetails.Type.equals("Teacher"))
         {DatabaseReference get = database.getReference("users/" + UserDetails.phone);
+
             get.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
@@ -76,8 +91,8 @@ public class ChatActivity extends AppCompatActivity {
                     // whenever data at this location is updated.
                 Buttonpop= dataSnapshot.child("call").getValue(String.class);
 
-if(Buttonpop.length()>5){calling.setVisibility(View.VISIBLE);}
-else{calling.setVisibility(View.GONE);}
+            if(Buttonpop.length()>5){calling.setVisibility(View.VISIBLE);}
+            else{calling.setVisibility(View.GONE);}
 
 
 
@@ -114,10 +129,24 @@ else{calling.setVisibility(View.GONE);}
 
 
 
-        }
-        if(UserDetails.Type.equals("Teacher")) {
+        } else {
+            DatabaseReference myRef44 = database.getReference("std/" + ProfileAdapter.contact);
+            myRef44.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    String namm = dataSnapshot.child("Name").getValue(String.class);
 
-            tv.setText(UserDetails.chatWith);
+                    tv.setText(namm);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    //Log.w(TAG, "Failed to read value.", error.toException());
+                }
+            });
         }
         reference1 = new Firebase("https://teacherequran.firebaseio.com/messages/" + UserDetails.phone + "_" + UserDetails.chatWith);
         reference2 = new Firebase("https://teacherequran.firebaseio.com/messages/" + UserDetails.chatWith + "_" + UserDetails.phone);
@@ -174,8 +203,6 @@ else{calling.setVisibility(View.GONE);}
                                 Uri.parse(number));
                         startActivity(intent);
 
-
-
                     }
 
                     @Override
@@ -189,7 +216,6 @@ else{calling.setVisibility(View.GONE);}
 
         }
     });
-
         reference1.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -198,10 +224,10 @@ else{calling.setVisibility(View.GONE);}
                 String userName = map.get("user").toString();
 
                 if(userName.equals(UserDetails.phone)){
-                    addMessageBox("You:-\n" + message, 1);
+                    addMessageBox("" + message, 1);
                 }
                 else{
-                    addMessageBox(UserDetails.chatWith + ":-\n" + message, 2);
+                    addMessageBox("" + message, 2);
                 }
             }
 
@@ -246,15 +272,51 @@ else{calling.setVisibility(View.GONE);}
 
         if(type == 1){
             lp2.gravity = Gravity.LEFT;
-            textView.setBackgroundResource(R.drawable.bubble_in);
+            textView.setBackgroundResource(R.drawable.bubble_out);
+
         }
         else{
             lp2.gravity = Gravity.RIGHT;
-            textView.setBackgroundResource(R.drawable.bubble_out);
+            textView.setBackgroundResource(R.drawable.bubble_in);
         }
         textView.setLayoutParams(lp2);
         layout.addView(textView);
         scrollView.fullScroll(View.FOCUS_DOWN);
 
+    }
+    public class CircleTransform implements Transformation {
+        @Override
+        public Bitmap transform(Bitmap source) {
+            int size = Math.min(source.getWidth(), source.getHeight());
+
+            int x = (source.getWidth() - size) / 2;
+            int y = (source.getHeight() - size) / 2;
+
+            Bitmap squaredBitmap = Bitmap.createBitmap(source, x, y, size, size);
+            if (squaredBitmap != source) {
+                source.recycle();
+            }
+
+            Bitmap bitmap = Bitmap.createBitmap(size, size, source.getConfig());
+
+            Canvas canvas = new Canvas(bitmap);
+            Paint paint = new Paint();
+            BitmapShader shader = new BitmapShader(squaredBitmap,
+                    Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+            paint.setShader(shader);
+            paint.setAntiAlias(true);
+
+            float r = size / 2f;
+            canvas.drawCircle(r, r, r, paint);
+
+            squaredBitmap.recycle();
+            return bitmap;
+
+        }
+
+        @Override
+        public String key() {
+            return "circle";
+        }
     }
 }

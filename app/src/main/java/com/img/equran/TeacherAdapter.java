@@ -6,7 +6,6 @@ import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Shader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -32,7 +28,6 @@ public class TeacherAdapter extends ArrayAdapter<String> {
 
     private final Activity context;
     private final ArrayList<String> maintitle;
-
 
     public TeacherAdapter(Activity context, ArrayList<String> maintitle) {
         super(context, R.layout.teacher_list_layout, maintitle);
@@ -106,6 +101,7 @@ public class TeacherAdapter extends ArrayAdapter<String> {
     }
     public class CircleTransform implements Transformation {
         @Override
+
         public Bitmap transform(Bitmap source) {
             int size = Math.min(source.getWidth(), source.getHeight());
 
