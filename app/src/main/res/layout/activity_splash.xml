@@ -22,6 +22,7 @@
     <ImageView
         android:layout_marginLeft="20dp"
         android:padding="20dp"
+        android:id="@+id/sp"
         android:foregroundGravity="center"
         android:layout_gravity="center"
         android:src="@drawable/eq_logo"

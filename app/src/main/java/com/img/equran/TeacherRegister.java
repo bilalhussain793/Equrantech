@@ -80,6 +80,14 @@ Button reg_btn;
 
     }
     public void regfun(){
+
+
+        if(name.getText().toString().length()<1){ name.setError("Name"); }
+        if(phn.getText().toString().length()<11){ phn.setError("Invalid Number"); }
+        if(!email.getText().toString().contains("@")){email.setError("@example.com");}
+        if(adr.getText().toString().length()<11){adr.setError("Adress Error"); }
+        if(pass.getText().toString().length()<6){pass.setError("PAssword Must Have 6 Characters");}
+        else {
         String url = "https://teacherequran.firebaseio.com/users.json";
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
@@ -132,7 +140,7 @@ Button reg_btn;
 
         RequestQueue rQueue = Volley.newRequestQueue(TeacherRegister.this);
         rQueue.add(request);
-    }
+    }}
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

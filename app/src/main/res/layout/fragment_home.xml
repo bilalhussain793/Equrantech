@@ -111,6 +111,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ln_std"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -160,7 +161,36 @@
 
 
         </LinearLayout>
+<LinearLayout
+    android:id="@+id/lnwallet"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="20dp"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/OpenScheduals"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="#CE4F4F"
+        android:text="Open Schedule"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold" />
 
+
+    <Button
+        android:id="@+id/Wallet"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_dark"
+        android:text="Wallet"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold" />
+
+</LinearLayout>
     </LinearLayout>
 
 </FrameLayout>

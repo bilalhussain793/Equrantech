@@ -166,7 +166,30 @@ public class Register extends AppCompatActivity {
                 ps = password.getText().toString();
                 final String rf = refrel.getText().toString();
 
-                String url = "https://teacherequran.firebaseio.com/std.json";
+      if(phone.equals("")){phone_et.setError("Required");}
+
+        if(un.equals("")){name.setError("Required");}
+        if(em.equals("")){email.setError("Required");}
+        if(ps.equals("")){password.setError("Required");}
+
+if(!em.contains("@")){email.setError("example@.com");}
+
+              if (phone.length() < 11) {
+                  phone_et.setError("Not Valid Phone");
+              }
+              if(un.length()<6){
+                  name.setError("Enter Valid Name");
+              }
+              if(ps.length()<6){
+                  password.setError("Minimum 6 Characters ");
+              }
+
+
+        else{
+
+
+
+        String url = "https://teacherequran.firebaseio.com/std.json";
                 StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
             @Override
                 public void onResponse(String s) {
@@ -230,6 +253,6 @@ public class Register extends AppCompatActivity {
         });
         RequestQueue rQueue = Volley.newRequestQueue(Register.this);
         rQueue.add(request);
-    }
+    }}
 
 }

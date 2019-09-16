@@ -2,11 +2,14 @@ package com.img.equran;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -37,6 +40,7 @@ public class ChatActivity extends AppCompatActivity {
     ScrollView scrollView;
     Button calling;
     TextView tv;
+    String Buttonpop;
     Firebase reference1, reference2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +57,41 @@ public class ChatActivity extends AppCompatActivity {
         messageArea = (EditText)findViewById(R.id.messageArea);
         scrollView = (ScrollView)findViewById(R.id.scrollView);
         calling=findViewById(R.id.call_bt);
+        int r;
+        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
 
+        for(r=0;r<10; r++){
+
+            calling.startAnimation(myAnim);
+
+        }
         Firebase.setAndroidContext(this);
+
+        if(UserDetails.Type.equals("Teacher"))
+        {DatabaseReference get = database.getReference("users/" + UserDetails.phone);
+            get.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                Buttonpop= dataSnapshot.child("call").getValue(String.class);
+
+if(Buttonpop.length()>5){calling.setVisibility(View.VISIBLE);}
+else{calling.setVisibility(View.GONE);}
+
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    //Log.w(TAG, "Failed to read value.", error.toException());
+                }
+            });
+
+        }
+
         if(UserDetails.Type.equals("Student")) {
 
             DatabaseReference myRef44 = database.getReference("users/" + ProfileAdapter.contact);
@@ -101,6 +138,8 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+
+
     calling.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -123,9 +162,18 @@ public class ChatActivity extends AppCompatActivity {
                         // whenever data at this location is updated.
                         String number = dataSnapshot.child("call").getValue(String.class);
 
+                        final Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                Clear();
+                            }
+                        }, 2000);
                         Intent intent = new Intent(Intent.ACTION_VIEW,
                                 Uri.parse(number));
                         startActivity(intent);
+
 
 
                     }
@@ -178,6 +226,16 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void Clear() {
+        if(UserDetails.Type.equals("Teacher")) {
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("users/" + ProfileAdapter.contact);
+
+            myRef.child("call").setValue("");
+
+
+        }}
 
     public void addMessageBox(String message, int type){
         TextView textView = new TextView(ChatActivity.this);

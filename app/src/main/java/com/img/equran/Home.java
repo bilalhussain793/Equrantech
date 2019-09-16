@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -34,6 +35,7 @@ public class Home extends Fragment {
         TextView sub_min,name1,email,uid;
         ImageView imageView;
         View view;
+        LinearLayout ln,lnstd;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
@@ -47,6 +49,15 @@ public class Home extends Fragment {
             name1=view.findViewById(R.id.name);
             email=view.findViewById(R.id.email);
             uid=view.findViewById(R.id.userId);
+            ln=view.findViewById(R.id.lnwallet);
+            lnstd=view.findViewById(R.id.ln_std);
+
+            if(UserDetails.Type.equals("Teacher")){
+                ln.setVisibility(View.VISIBLE);
+                lnstd.setVisibility(View.GONE);
+            }
+            if(UserDetails.Type.equals("Student")){ ln.setVisibility(View.GONE);
+                lnstd.setVisibility(View.VISIBLE);}
 
             Picasso.with(getActivity()).load("https://firebasestorage.googleapis.com" +
                     "/v0/b/" +

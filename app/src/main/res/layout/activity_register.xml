@@ -247,8 +247,7 @@
             android:padding="12dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+
             android:drawableLeft="@drawable/usrusr"
             android:drawablePadding="16dp" />
 
@@ -265,8 +264,7 @@
             android:padding="12dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+
             android:drawableLeft="@drawable/mail"
             android:drawablePadding="16dp" />
 
@@ -283,16 +281,13 @@
             android:padding="12dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:drawableLeft="@drawable/lockers"
             android:drawablePadding="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+
             android:layout_marginTop="10dp"
             android:background="#52FFFFFF"
             android:orientation="horizontal">
@@ -328,8 +323,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:background="#52FFFFFF"
@@ -349,6 +343,7 @@
             <Spinner
                 android:id="@+id/gen"
                 android:layout_width="30dp"
+
                 android:backgroundTint="#FFFFFF"
                 android:layout_height="wrap_content"
                 android:entries="@array/country_arrays"
@@ -372,8 +367,7 @@
             android:background="#52FFFFFF"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+
             android:drawablePadding="16dp"/>
 
 
@@ -381,9 +375,11 @@
         <Button
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:layout_height="wrap_content"
             android:background="@drawable/btngreenstyle"
-            android:text="Next"
+            android:text="SignUp"
             android:layout_marginBottom="20dp"
             android:textColor="@color/colorAccent"
             android:textStyle="bold" />
