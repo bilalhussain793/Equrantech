@@ -8,7 +8,7 @@
     android:background="@drawable/quran"
     tools:context=".ChatActivity">
     <LinearLayout
-android:layout_gravity="center"
+        android:layout_gravity="center"
         android:background="#40FFFFFF"
         android:orientation="horizontal"
         android:layout_width="fill_parent"

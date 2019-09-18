@@ -20,7 +20,6 @@
             <ImageView
                 android:layout_gravity="center"
                 android:src="@drawable/eq_logo"
-
                 android:layout_marginTop="20dp"
                 android:layout_width="150dp"
                 android:layout_height="150dp" />
@@ -183,7 +182,6 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginTop="0dp"
-
                 android:text="By creating an account, you agree to our User Agreement and that you have read our Privacy Policy"
                 android:textAlignment="center"
                 android:textColor="#ffffff"
