@@ -1,5 +1,6 @@
 package com.img.equran;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
@@ -17,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -25,6 +28,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -39,15 +44,21 @@ public class ChatActivity extends AppCompatActivity {
     TextView tv;
     String Buttonpop;
     Firebase reference1, reference2;
+    Dialog d;
+
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("users/"+ProfileAdapter.contact);
+    final int random = new Random().nextInt(2234326) + 12345635;
+    final String ca="https://appr.tc/r/"+random;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("users/"+ProfileAdapter.contact);
-        final int random = new Random().nextInt(2234326) + 12345635;
-        final String ca="https://appr.tc/r/"+random;
-         tv=findViewById(R.id.user_name);
+        d=new Dialog(ChatActivity.this);
+        d.setContentView(R.layout.custom_diag);
+
+
+        tv=findViewById(R.id.user_name);
         layout = (LinearLayout) findViewById(R.id.layout1);
         layout_2 = (RelativeLayout)findViewById(R.id.layout2);
         sendButton = (ImageView)findViewById(R.id.sendButton);
@@ -64,6 +75,71 @@ public class ChatActivity extends AppCompatActivity {
         }
         Firebase.setAndroidContext(this);
 
+
+        if(UserDetails.Type.equals("Teacher"))
+        {
+
+            final TextView text = (TextView) d.findViewById(R.id.text);
+
+            DatabaseReference get = database.getReference("std/" + UserDetails.chatWith);
+            get.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
+
+                    String nemeofhero = dataSnapshot.child("Name").getValue(String.class);
+                    text.setText("Calling From " + nemeofhero);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    //Log.w(TAG, "Failed to read value.", error.toException());
+                }
+            });
+
+        }
+
+
+        Button dialogButton = (Button) d.findViewById(R.id.dialogButtonOK);
+        // if button is clicked, close the custom dialog
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Call();
+
+            }
+        });
+
+        if(UserDetails.Type.equals("Teacher"))
+        {DatabaseReference get = database.getReference("users/" + UserDetails.phone);
+            get.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
+
+                    String number2 = dataSnapshot.child("call").getValue(String.class);
+                    if(number2.length()>7)
+                    {
+                        calling.setVisibility(View.VISIBLE);
+                        d.show();
+                    }
+                    else {
+                        calling.setVisibility(View.GONE);
+                        d.dismiss();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+
+                }
+            });
+
+        }
+
+
+
+
+
         if(UserDetails.Type.equals("Teacher"))
         {DatabaseReference get = database.getReference("users/" + UserDetails.phone);
             get.addValueEventListener(new ValueEventListener() {
@@ -71,12 +147,10 @@ public class ChatActivity extends AppCompatActivity {
                 public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
                     // This method is called once with the initial value and again
                     // whenever data at this location is updated.
-                Buttonpop= dataSnapshot.child("call").getValue(String.class);
+                    Buttonpop= dataSnapshot.child("call").getValue(String.class);
 
-if(Buttonpop.length()>5){calling.setVisibility(View.VISIBLE);}
-else{calling.setVisibility(View.GONE);}
-
-
+                    if(Buttonpop.length()>5){calling.setVisibility(View.VISIBLE);}
+                    else{calling.setVisibility(View.GONE);}
 
                 }
 
@@ -92,7 +166,7 @@ else{calling.setVisibility(View.GONE);}
         if(UserDetails.Type.equals("Student")) {
 
             DatabaseReference myRef44 = database.getReference("users/" + ProfileAdapter.contact);
-           myRef44.addValueEventListener(new ValueEventListener() {
+            myRef44.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
                     // This method is called once with the initial value and again
@@ -102,12 +176,12 @@ else{calling.setVisibility(View.GONE);}
                     tv.setText(namm);
                 }
 
-               @Override
-               public void onCancelled(DatabaseError error) {
-                   // Failed to read value
-                   //Log.w(TAG, "Failed to read value.", error.toException());
-               }
-           });
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    //Log.w(TAG, "Failed to read value.", error.toException());
+                }
+            });
 
 
 
@@ -137,55 +211,26 @@ else{calling.setVisibility(View.GONE);}
 
 
 
-    calling.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-
-            if(UserDetails.Type.equals("Student")) {
-            DatabaseReference myRef = database.getReference("users/" + ProfileAdapter.contact);
-
-            myRef.child("call").setValue(ca);
+        calling.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
 
-            Intent intent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(ca));
-            startActivity(intent);}
-            if(UserDetails.Type.equals("Teacher"))
-            {DatabaseReference get = database.getReference("users/" + UserDetails.phone);
-                get.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
-                        // This method is called once with the initial value and again
-                        // whenever data at this location is updated.
-                        String number = dataSnapshot.child("call").getValue(String.class);
+        Call();
+        if(UserDetails.Type.contains("Teacher")){
 
-                        final Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
 
-                                Clear();
-                            }
-                        }, 2000);
-                        Intent intent = new Intent(Intent.ACTION_VIEW,
-                                Uri.parse(number));
-                        startActivity(intent);
-
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {
-                        // Failed to read value
-                        //Log.w(TAG, "Failed to read value.", error.toException());
-                    }
-                });
+                    Clear11();
+                }
+            }, 5000);
+        }
 
             }
-
-        }
-    });
+        });
 
         reference1.addChildEventListener(new ChildEventListener() {
             @Override
@@ -224,15 +269,55 @@ else{calling.setVisibility(View.GONE);}
         });
     }
 
-    private void Clear() {
-        if(UserDetails.Type.equals("Teacher")) {
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private void Call()
+    {
+
+        if(UserDetails.Type.equals("Student")) {
             DatabaseReference myRef = database.getReference("users/" + ProfileAdapter.contact);
 
-            myRef.child("call").setValue("");
+            myRef.child("call").setValue(ca);
+
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ca));
+            startActivity(intent);}
 
 
-        }}
+
+        if(UserDetails.Type.equals("Teacher"))
+        {DatabaseReference get = database.getReference("users/" + UserDetails.phone);
+            get.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    String loginid = dataSnapshot.child("call").getValue(String.class);
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(loginid));
+                    startActivity(intent);
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    //Log.w(TAG, "Failed to read value.", error.toException());
+                }
+            });
+
+        }
+    }
+
+    private void Clear11() {
+
+
+        if(UserDetails.Type.equals("Teacher")) {
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef2 = database.getReference("users/" + UserDetails.phone);
+
+            myRef2.child("call").setValue("2");
+
+        }
+    }
 
     public void addMessageBox(String message, int type){
         TextView textView = new TextView(ChatActivity.this);
